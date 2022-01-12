@@ -17,5 +17,10 @@ const Journey = (props) => { //pass user info to Journey
     const addNewEntry = (entryObj) => {
         setEntries([entryObj].concat(entries));
     };
+
+
     //using feed.js as basis
+    //card component to create list of entries
+
 }
+export default Journey;

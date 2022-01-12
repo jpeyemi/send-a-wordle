@@ -2,12 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Router } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
+import NavBar from "./modules/NavBar.js";
+import Journey from "./pages/Journey.js";
+import Leaderboard from "./pages/Leaderboard.js";
 
 import "../utilities.css";
 
 import { socket } from "../client-socket.js";
 
 import { get, post } from "../utilities";
+import "./App.css";
 
 /**
  * Define the "App" component
@@ -40,10 +44,20 @@ const App = () => {
 
   return (
     <>
-      <Router>
-        <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
-        <NotFound default />
-      </Router>
+      <NavBar
+        handleLogin={handleLogin}
+        handleLogout={handleLogout}
+        userId={userId}
+      />
+      <div className="App-container">
+        <Router>
+          <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
+          <Journey path="/journey/:userId"/>
+          {//<Leaderboard path = "/leaderboard/" userId = {userId}/>
+}
+          <NotFound default />
+        </Router>
+      </div>
     </>
   );
 };
