@@ -45,7 +45,7 @@ router.post("/initsocket", (req, res) => {
 // |------------------------------|
 
 router.get("/entries", auth.ensureLoggedIn, (req,res) => {
-  Entry.find({}).then((entries) => res.send(entries)); //add condition, entries for user
+  Entry.find({req}).then((entries) => res.send(entries)); //add condition, entries for user
 });
 
 router.post("/entry", auth.ensureLoggedIn, (req,res) => {
