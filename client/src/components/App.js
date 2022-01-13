@@ -51,8 +51,8 @@ const App = () => {
       />
       <div className="App-container">
         <Router>
-          <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
-          <Journey path="/journey/:userId"/>
+          <Skeleton path="/" userId={userId} />
+          <Journey path="/journey/:userId"userId={userId}/>
           {//<Leaderboard path = "/leaderboard/" userId = {userId}/>
 }
           <NotFound default />
