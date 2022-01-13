@@ -21,6 +21,7 @@ const Journey = (props) => { //pass user info to Journey
 
     //using feed.js as basis
     //card component to create list of entries
+    //i love pie
 
 }
 export default Journey;
