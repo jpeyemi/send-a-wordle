@@ -4,6 +4,7 @@ import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
 import NavBar from "./modules/NavBar.js";
 import Journey from "./pages/Journey.js";
+import Entry from "./pages/Entry.js";
 import Leaderboard from "./pages/Leaderboard.js";
 
 import "../utilities.css";
@@ -56,6 +57,7 @@ const App = () => {
           <Journey path="/journey/:userId"userId={userId}/>
           {//<Leaderboard path = "/leaderboard/" userId = {userId}/>
 }
+          <Entry path="/entry/" userId={userId} />
           <NotFound default />
         </Router>
       </div>
