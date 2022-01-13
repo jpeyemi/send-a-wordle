@@ -11,7 +11,7 @@ const express = require("express");
 
 // import models so we can interact with the database
 const User = require("./models/user"); //unused so far
-const Entry = require("./models/entry")
+const Entry = require("./models/Entry")
 
 // import authentication library
 const auth = require("./auth");
@@ -45,13 +45,15 @@ router.post("/initsocket", (req, res) => {
 // |------------------------------|
 
 router.get("/entries", auth.ensureLoggedIn, (req,res) => {
-  Entry.find({req}).then((entries) => res.send(entries)); //add condition, entries for user
+  Entry.find({creator_id: req.user}).then((entries) => {res.send(entries)}); //add condition, entries for user
+  //Entry.find({}).then((entries) => {res.send(entries)});
+  //res.send([])
 });
 
 router.post("/entry", auth.ensureLoggedIn, (req,res) => {
   const newEntry = new Entry({
-    creator_id: req.user._id,
-    creator_name: req.user.name,
+    creator_id: req.body.creator_id,
+    creator_name: req.body.creator_name,
     score: req.body.score, //command tbd
   });
   newEntry.save().then((entry) => res.send(entry));
