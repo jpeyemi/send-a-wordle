@@ -4,9 +4,16 @@ import "./Card.css";
 const Card = (props) => {
     return (
         <div className = "Card-container">
-            {props.entryObj.timestamp}
-            <p> </p>
-            {props.entryObj.score} Emission Score
+            <span className = "Card-score">
+                {props.entryObj.score} 
+            </span>
+            <span className = "Card-scoreText">
+                Emission Score
+            </span>
+            <span className = "Card-date">
+                 {props.entryObj.timestamp.substring(5,10)}-{props.entryObj.timestamp.substring(0,4)}
+            </span>
+            
         </div>
     )
 }

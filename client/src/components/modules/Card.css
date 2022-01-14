@@ -1,7 +1,7 @@
 .Card-container {
   border: var(--darkgrey) 1px solid;
-  border-radius: var(--xs);
-  margin-top: var(--m);
+  padding: var(--m)
+  
 }
 
 .Card-container:first-of-type {
@@ -30,4 +30,23 @@
 
 .Card-commentBody {
   margin: 0 0 var(--s);
+}
+
+.Card-score{
+  font-size: 25px;
+  font-weight: 1000;
+  color: var(--primary);
+  padding: var(--m);
+}
+
+.Card-date{
+  font-size: 18px;
+  color: var(--grey);
+  padding-left: var(--m);
+  
+}
+ 
+.Card-scoreText{
+  font-size: 22px;
+  color: var(--black);
 }
