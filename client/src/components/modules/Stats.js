@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { get } from "../../utilities";
 import "./Card.css";
+import "./Stats.css";
 
 const Stats = (props) => {
     let min = props.scores[0];
@@ -15,12 +16,21 @@ const Stats = (props) => {
         }
     }
     return(
-        <div className = "Card-container">
-            Best Score: {min}
+        <div className = "Stats-container">
+            <span className = "Stats-labels">
+                Best Score:
+            </span>
+            <span className ="Stats-data">{min}</span>
             <p> </p>
-            Average: {Math.round(avg)}
+            <span className = "Stats-labels">
+                Average: 
+            </span>
+            <span className ="Stats-data">{Math.round(avg)}</span>
             <p> </p>
-            Percent Improval: {}
+            <span className = "Stats-labels">
+                Precent Improval: 
+            </span>
+            <span className ="Stats-data">{}</span>
         </div>
     )
 }

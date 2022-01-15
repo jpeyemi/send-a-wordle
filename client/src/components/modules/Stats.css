@@ -1,0 +1,17 @@
+.Stats-container{
+    border: var(--darkgrey) 1px solid;
+    padding: var(--m);
+    background-color: var(--primary--dim);
+}
+
+.Stats-labels{
+    font-size: 30px;
+    color: var(--black);
+}
+
+.Stats-data{
+    font-size: 32px;
+    font-weight: 100;
+    color: var(--black);
+    padding: var(--m);
+}
