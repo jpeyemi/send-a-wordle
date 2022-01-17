@@ -7,3 +7,5 @@ const EntrySchema = new mongoose.Schema({
     timestamp: { type: Date, default: Date.now },
     // extra params tbd
 });
+
+module.exports = mongoose.model("Entry", EntrySchema);

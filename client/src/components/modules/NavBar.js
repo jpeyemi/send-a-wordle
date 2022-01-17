@@ -3,6 +3,7 @@ import { Link } from "@reach/router";
 import GoogleLogin, { GoogleLogout } from "react-google-login";
 
 import "./NavBar.css";
+import "../../utilities.css";
 
 // This identifies your web application to Google's authentication service
 const GOOGLE_CLIENT_ID = "121479668229-t5j82jrbi9oejh7c8avada226s75bopn.apps.googleusercontent.com";

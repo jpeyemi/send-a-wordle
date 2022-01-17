@@ -39,6 +39,7 @@ const App = () => {
       setUserId(user._id);
       post("/api/initsocket", { socketid: socket.id });
     });
+    location.reload();
   };
 
   const handleLogout = () => {
