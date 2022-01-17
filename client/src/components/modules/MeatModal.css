@@ -1,0 +1,45 @@
+.AddDetailsMeat {
+    background: #ffffff;
+	border-radius: 5px;
+	height: 40px;
+	width: 380px;
+    line-height: 40px;
+    display: block;
+    text-align: center;
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    color: #475149; 
+    margin-bottom: 30px;
+}
+
+.modal-content {
+    background-color: #D9E2DC;
+  }
+
+.AddDetailsMeat {
+    box-shadow: 0 0 0 0 rgba(#ffffff, 1);
+	transform: scale(1);
+	animation: pulse-white 2s infinite;
+}
+
+.AddDetailsMeat:hover {
+	animation: none;
+}
+
+@keyframes pulse-white {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    }
+    
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+    }
+    
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+  }
+  

@@ -21,7 +21,7 @@ const Skeleton = ({ userId}) => {
         Take your first step towards stabilizing the Amazonian forest 
         frontier today.</p>
       
-      <Link to="/entry/">
+      <Link to="/entry/1">
           Entry
       </Link>
    </>
