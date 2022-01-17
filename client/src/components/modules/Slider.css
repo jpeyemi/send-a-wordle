@@ -483,3 +483,45 @@
     color: #475149; 
     margin-bottom: 10px;
 }
+
+#localInput {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 3px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    z-index: 3;
+}
+
+#localInput::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+    background: #98AF9E;
+    border: 1px solid #98AF9E;
+    cursor: pointer;
+}
+
+#localText {
+    width: 380px;
+    height: 25px;
+    background: #fff;
+    border-radius: 5px;
+    display: inline-block;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Inter', sans-serif;
+    color: #475149; 
+    margin-bottom: 10px;
+}
+
+#localRange {
+    padding: 0 65px 0 45px;
+}
+
+#localright {
+    right: -43px;
+}

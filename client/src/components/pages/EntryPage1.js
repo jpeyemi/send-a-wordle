@@ -8,6 +8,11 @@ import "./EntryPage.css";
 import { Link } from "@reach/router";
 
 const EntryPage1 = () => {
+    const handleClick = () => {
+        console.log("ayo");
+        sessionStorage.setItem("slider", 40);
+    }
+    
     const handleRightArrowHover = () => {
         document.querySelector('.RightArrow').animate([
             {left: '0'},
@@ -46,7 +51,8 @@ const EntryPage1 = () => {
             <DairySlider />
 
             <Link to="/entry/2" className="RightArrowContainer" 
-                onMouseOver = { handleRightArrowHover } >
+                onMouseOver = { handleRightArrowHover } 
+                onClick = { handleClick }>
                 <div className="RightArrow" />
             </Link>
 

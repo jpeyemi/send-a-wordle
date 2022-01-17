@@ -5,6 +5,10 @@ import MilkModal from "../modules/MilkModal.js";
 import { Link } from "@reach/router";
 
 const EntryPage2 = () => {
+    useEffect(() => {
+        console.log(sessionStorage.getItem('slider'));
+    }, []);
+
     const handleRightArrowHover = () => {
         document.querySelector('.RightArrow').animate([
             {left: '0'},
