@@ -3,6 +3,7 @@ import Card from "../modules/Card.js";
 import { NewEntry } from "../modules/NewPostInput.js";
 import { get } from "../../utilities";
 import Stats from "../modules/Stats.js";
+import { Link } from "@reach/router";
 import "../App.css"
 //import Chart from "../modules/Chart.js";
 import Graph from "../modules/Graph.js";
@@ -72,6 +73,9 @@ const Journey = (props) => { //pass user info to Journey
         <>
             {<Graph data={data}/>}
             {<Stats scores={scores} />}
+            <Link to="/entry/1">
+                Entry
+            </Link>
             {props.userId && <NewEntry addNewEntry={addNewEntry} userId = {props.userId}/>}
             <div className ="App-entryContainer">
                 <div className = "App-entryTitle">

@@ -32,15 +32,15 @@ const Slider = (props) => {
 
     return (
         <>
-        <div class="range">
-    <div class="sliderValue">
+        <div className="range">
+    <div className="sliderValue">
         <span className="spanclass">1</span>
     </div>
-    <div class="field">
-        <div class="value left">
+    <div className="field">
+        <div className="value left">
             0</div>
         <input type="range" min="0" max="200" steps="1" onChange={inputFunc} onBlur={blurFunc}/>
-        <div class="value right">
+        <div className="value right">
             3</div>
     </div>
 </div>

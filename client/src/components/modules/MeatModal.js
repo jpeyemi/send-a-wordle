@@ -12,10 +12,15 @@ import PoultrySlider from "./PoultrySlider.js";
 
 const MeatModal = () => {
     const [visible, setVisibility] = useState(false);
-
+    const [servings, setServings] = useState({})
     const handleOpen = () => { setVisibility(true) };
-    const handleClose = () => { setVisibility(false) };
-
+    const handleClose = () => { 
+        setVisibility(false) 
+        console.log(servings)
+    };
+    const serv = (type, servs) => {
+        servings[type] = servs;
+    };
     return (
         <>
             <span className="AddDetailsMeat" onClick={handleOpen}>
@@ -25,7 +30,7 @@ const MeatModal = () => {
             <Modal size="lg" show={visible} onHide={handleClose}>
                 <Modal.Body> 
                     <h3>How often did you eat <b>beef</b>?</h3>
-                    <BeefSlider />
+                    <BeefSlider save={serv} servs={servings}/>
                     <h3>How often did you eat <b>lamb</b>?</h3>
                     <TestSlider />
                     <h3>How often did you eat <b>pork</b>?</h3>
