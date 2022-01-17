@@ -22,13 +22,14 @@ const Journey = (props) => { //pass user info to Journey
         setScores(scores)
     }
     const makeData = (entryObjs) => {
-        dict = {}
+        let dict = {}
+        let time = " "
         for(let entry in entryObjs){
-            let time = entry.timestamp.substring(0,10)
-            if(dict.keys().includes((time))){
-                dict[time] = [dict[time][0]+entry.score, dict[time]+1]
+            time = String(entryObjs[entry].timestamp).substring(0,10)
+            if(Object.keys(dict).includes(time)){
+                dict[time] = [dict[time][0]+entryObjs[entry].score, dict[time][1]+1]
             }else{
-                dict[time] = [entry.score, 1]
+                dict[time] = [entryObjs[entry].score, 1]
             }
         }
         for(let key in dict){
@@ -41,6 +42,7 @@ const Journey = (props) => { //pass user info to Journey
         get("/api/entries", {user: props.userId}).then((entries) => {
             setEntries(entries.reverse());
             makeScores(entries);
+            makeData(entries);
         });//may change depending on format of passed user info
     }, []);
 

@@ -10,9 +10,10 @@ const controllers = Object.values(Chartjs).filter(
   
   Chart.register(...controllers);
 const Graph = (props) => {
-
+    const[graph,setGraph] = useState([]);
     useEffect(()=> {
         console.log(get("../api/whoami"));
+        console.log(props.data);
         get("../api/whoami").then((am) => {
             if(am !== {}){
                 let xValues = [50,60,70,80,90,100,110,120,130,140,150];
@@ -20,23 +21,41 @@ const Graph = (props) => {
 
                 let myChart = document.getElementById('myChart').getContext('2d')
                 try{
-                let graph =  new Chart(myChart, {
-                    type: "line",
-                    data: {
-                        labels: xValues,
-                        datasets: [{
-                            backgroundColor: "rgba(0,0,0,1.0)",
-                            borderColor: "rgba(0,0,0,0.1)",
-                            data: yValues
-                        }]
-                    },
-                    options:{
-                        legend: {display: false},
+                    setGraph(new Chart(myChart, {
+                        type: "line",
+                        data: {
+                            labels: Object.keys(props.data),
+                            datasets: [{
+                                backgroundColor: "rgba(0,0,0,1.0)",
+                                borderColor: "rgba(0,0,0,0.1)",
+                                data: Object.values(props.data),
+                            }]
+                        },
+                        options:{
+                            legend: {display: false},
+                        }
+                    }) )
+                    /*graph =  new Chart(myChart, {
+                        type: "line",
+                        data: {
+                            labels: Object.keys(props.data),
+                            datasets: [{
+                                backgroundColor: "rgba(0,0,0,1.0)",
+                                borderColor: "rgba(0,0,0,0.1)",
+                                data: Object.values(props.data),
+                            }]
+                        },
+                        options:{
+                            legend: {display: false},
+                        }
+                    });*/
                     }
-                 });
-                } 
                 catch{
-                    
+                    /*graph.data.labels.pop();
+                    graph.data.lables.push(Object.keys(props.data))
+                    graph.data.datasets.pop();
+                    graph.data.datasets.push(Object.values(props.data))
+                    graph.update()*/
                 }
             }});
     });
