@@ -4,6 +4,8 @@ import { NewEntry } from "../modules/NewPostInput.js";
 import { get } from "../../utilities";
 import Stats from "../modules/Stats.js";
 import "../App.css"
+//import Chart from "../modules/Chart.js";
+import Graph from "../modules/Graph.js";
 //import other components tbd
 
 
@@ -11,6 +13,7 @@ import "../App.css"
 const Journey = (props) => { //pass user info to Journey
     const [entries, setEntries] = useState([]);
     const [scores, setScores] = useState([]);
+    const [data, setData] =useState([]);
 
     const makeScores = (entryObjs) => {
         let scores = entryObjs.map((entryObj) => (
@@ -18,18 +21,33 @@ const Journey = (props) => { //pass user info to Journey
         ));
         setScores(scores)
     }
+    const makeData = (entryObjs) => {
+        dict = {}
+        for(let entry in entryObjs){
+            let time = entry.timestamp.substring(0,10)
+            if(dict.keys().includes((time))){
+                dict[time] = [dict[time][0]+entry.score, dict[time]+1]
+            }else{
+                dict[time] = [entry.score, 1]
+            }
+        }
+        for(let key in dict){
+            dict[key] = dict[key][0]/dict[key][1]
+        }
+        setData(dict);
+    }
 
     useEffect(() => {
         get("/api/entries", {user: props.userId}).then((entries) => {
             setEntries(entries.reverse());
-            makeScores(entries)
+            makeScores(entries);
         });//may change depending on format of passed user info
     }, []);
 
 
     const addNewEntry = (entryObj) => {
         setEntries([entryObj].concat(entries));
-        makeScores([entryObj].concat(entries))
+        makeScores([entryObj].concat(entries));
     };
 
     let entriesList = null;
@@ -45,8 +63,12 @@ const Journey = (props) => { //pass user info to Journey
     } else {
         entriesList = <div>No Entries Yet!</div>;
     }
+
+    
+    
     return(
         <>
+            {<Graph data={data}/>}
             {<Stats scores={scores} />}
             {props.userId && <NewEntry addNewEntry={addNewEntry} userId = {props.userId}/>}
             <div className ="App-entryContainer">
