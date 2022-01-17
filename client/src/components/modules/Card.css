@@ -1,0 +1,52 @@
+.Card-container {
+  border: var(--darkgrey) 1px solid;
+  padding: var(--m)
+  
+}
+
+.Card-container:first-of-type {
+  margin-top: var(--l);
+}
+
+.Card-story,
+.Card-commentSection {
+  padding: var(--m) var(--l);
+}
+
+.Card-storyUser {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.Card-storyContent {
+  font-size: 40px;
+  margin: var(--s) 0 0;
+}
+
+.Card-commentSection {
+  background-color: var(--grey);
+  border-top: 1px solid var(--darkgrey);
+}
+
+.Card-commentBody {
+  margin: 0 0 var(--s);
+}
+
+.Card-score{
+  font-size: 25px;
+  font-weight: 1000;
+  color: var(--primary);
+  padding: var(--m);
+}
+
+.Card-date{
+  font-size: 18px;
+  color: var(--grey);
+  padding-left: var(--m);
+  
+}
+ 
+.Card-scoreText{
+  font-size: 22px;
+  color: var(--black);
+}

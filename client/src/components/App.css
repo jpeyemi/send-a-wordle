@@ -3,3 +3,21 @@
   padding: var(--m) var(--m);
   margin: auto;
 }
+
+.App-entryContainer{
+  
+  border-top-left-radius: var(--m);
+  border-top-right-radius: var(--m);
+  margin-top: var(--l);
+}
+
+.App-entryTitle{
+  background-color: var(--primary);
+  color: var(--white);
+  border-top-left-radius: var(--m);
+  border-top-right-radius: var(--m);
+  font-size: 30px;
+  padding: var(--s);
+  padding-left: var(--l);
+  
+}

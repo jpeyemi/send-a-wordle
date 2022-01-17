@@ -30,3 +30,7 @@
 .NavBar-link + .NavBar-link {
   margin-left: var(--m);
 }
+
+.push{
+  margin-right:auto;
+}
