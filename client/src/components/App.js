@@ -4,7 +4,6 @@ import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
 import NavBar from "./modules/NavBar.js";
 import Journey from "./pages/Journey.js";
-import Entry from "./pages/Entry.js";
 import Leaderboard from "./pages/Leaderboard.js";
 
 import "../utilities.css";
@@ -13,6 +12,9 @@ import { socket } from "../client-socket.js";
 
 import { get, post } from "../utilities";
 import "./App.css";
+import EntryPage1 from "./pages/EntryPage1.js";
+import EntryPage2 from "./pages/EntryPage2.js";
+import EntryPage3 from "./pages/EntryPage3.js";
 
 /**
  * Define the "App" component
@@ -56,7 +58,9 @@ const App = () => {
           <Journey path="/journey/:userId"userId={userId}/>
           {//<Leaderboard path = "/leaderboard/" userId = {userId}/>
 }
-          <Entry path="/entry/" userId={userId} />
+          <EntryPage1 path="/entry/1" userId={userId} />
+          <EntryPage2 path="/entry/2" userId={userId} />
+          <EntryPage3 path="/entry/3" userId={userId} />
           <NotFound default />
         </Router>
       </div>
