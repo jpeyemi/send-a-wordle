@@ -1,0 +1,83 @@
+.CheckboxButton {
+    background: #ffffff;
+	border-radius: 5px;
+	height: 40px;
+	width: 380px;
+    line-height: 40px;
+    display: block;
+    text-align: center;
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    color: #475149; 
+    margin-bottom: 30px;
+    box-shadow: 0 0 0 0 rgba(#ffffff, 1);
+	transform: scale(1);
+    margin-bottom: 10px;
+    cursor: default;
+    display: inline-block;
+}
+
+.CheckboxButtonClicked {
+    background: var(--primary);
+    animation: pulse-color 2s infinite;
+    color: #ffffff;
+}
+
+@keyframes pulse-color {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(152, 175, 158, 0.7);
+    }
+    
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 20px rgba(152, 175, 158, 0);
+    }
+    
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(152, 175, 158, 0);
+    }
+  }
+
+  .SubmitButton {
+    background: rgba(93, 110, 97, 1);
+	border-radius: 5px;
+	height: 40px;
+	width: 380px;
+    line-height: 40px;
+    display: block;
+    text-align: center;
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    color: var(--white); 
+    margin-top: 50px;
+    box-shadow: 0 0 0 0 rgba(93, 110, 97, 1);
+	transform: scale(1);
+	animation: pulse-dark 2s infinite;
+    text-decoration: none
+}
+
+.SubmitButton:hover {
+    color: var(--white);
+    text-decoration: none;
+	animation: none;
+}
+
+@keyframes pulse-dark {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(93, 110, 97, 0.7);
+    }
+    
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 20px rgba(93, 110, 97, 0);
+    }
+    
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(93, 110, 97, 0);
+    }
+  }
+  
