@@ -483,3 +483,23 @@
     color: #475149; 
     margin-bottom: 10px;
 }
+
+#localText {
+    width: 380px;
+    height: 25px;
+    background: #fff;
+    border-radius: 5px;
+    display: inline-block;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Inter', sans-serif;
+    color: #475149; 
+    margin-bottom: 10px;
+}
+
+#localRange {
+    padding: 0 65px 0 45px;
+}
+
+#localright {
+    right: -43px;
+}

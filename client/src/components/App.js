@@ -15,6 +15,7 @@ import "./App.css";
 import EntryPage1 from "./pages/EntryPage1.js";
 import EntryPage2 from "./pages/EntryPage2.js";
 import EntryPage3 from "./pages/EntryPage3.js";
+import EntryPage4 from "./pages/EntryPage4.js";
 
 /**
  * Define the "App" component
@@ -61,8 +62,9 @@ const App = () => {
 }
           <EntryPage1 path="/entry/1" userId={userId} />
           <EntryPage2 path="/entry/2" userId={userId} />
-          {//<EntryPage3 path="/entry/3" userId={userId} />
-          }
+          <EntryPage3 path="/entry/3" userId={userId} />
+          <EntryPage4 path="/entry/4" userId={userId} />
+          
           <NotFound default />
         </Router>
       </div>

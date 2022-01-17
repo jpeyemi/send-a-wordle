@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
-import NonSlider from "../modules/NonSlider.js";
 import "./EntryPage.css";
 import MilkModal from "../modules/MilkModal.js";
 import { Link } from "@reach/router";
+import DivineSliderTheSliderToEndAllSliders from "../modules/DivineSliderTheSliderToEndAllSliders.js";
 
 const EntryPage2 = () => {
+
+    const [servings, setServings] = useState({})
+    const serv = (type, servs) => {
+        servings[type] = servs;
+    };
+
     const handleRightArrowHover = () => {
         document.querySelector('.RightArrow').animate([
             {left: '0'},
@@ -31,9 +37,9 @@ const EntryPage2 = () => {
         <>
             <h6 className="EntryPageHeader">VEGAN ALTERNATIVES</h6>
             <h2 className="EntryPageQuestion">How often did you consume plant-based alternatives?</h2>
-            <NonSlider />
+            <DivineSliderTheSliderToEndAllSliders id='non' save={serv} servs = {servings}/>
             <br />
-            <MilkModal />
+            <MilkModal servs={servings}/>
 
             <Link to="/entry/3" className="RightArrowContainer" 
                 onMouseOver = { handleRightArrowHover } >

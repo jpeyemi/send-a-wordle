@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./EntryPage.css";
 import { Link } from "@reach/router";
-import LocalSlider from "../modules/LocalSlider.js";
+import Checkbox from "../modules/Checkbox.js";
 
-const EntryPage3 = () => {
+const EntryPage4 = () => {
     /*useEffect(() => {
         console.log(sessionStorage.getItem('slider'));
     }, []);*/
@@ -32,17 +32,22 @@ const EntryPage3 = () => {
 
     return (
         <>
-            <h6 className="EntryPageHeader">LOCAL PRODUCE</h6>
-            <h2 className="EntryPageQuestion">How much of your diet was locally grown or produced?</h2>
-            <LocalSlider />
+            <h6 className="EntryPageHeader">CONSERVE THE AMAZON</h6>
+            <h2 className="EntryPageQuestion">How many of these foods did you eat?</h2>
+            
+            <Checkbox text="Açaí berries" id="acai" />
+            <br />
+            <Checkbox text="Amazonian cocoa" id="cocoa" />
+            <br />
+            <Checkbox text="Brazil nuts" id="nuts" />
+            <br />
+            <Checkbox text="Guaraná berries" id="gua" />
             <br />
 
-            <Link to="/entry/4" className="RightArrowContainer" 
-                onMouseOver = { handleRightArrowHover } >
-                <div className="RightArrow" />
+            <Link to="/Journey" className="SubmitButton" > Submit
             </Link>
 
-            <Link to="/entry/2" className="LeftArrowContainer" 
+            <Link to="/entry/3" className="LeftArrowContainer" 
                 onMouseOver = { handleLeftArrowHover } >
                 <div className="LeftArrow" />
             </Link>
@@ -51,4 +56,4 @@ const EntryPage3 = () => {
     );
 };
 
-export default EntryPage3;
+export default EntryPage4;

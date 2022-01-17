@@ -4,23 +4,12 @@ import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState, useEffect } from "react";
 import "./MeatModal.css";
-import Slider from "./Slider.js";
-import BeefSlider from "./BeefSlider.js";
-import TestSlider from "./TestSlider.js";
-import PorkSlider from "./PorkSlider.js";
-import PoultrySlider from "./PoultrySlider.js";
+import DivineSliderTheSliderToEndAllSliders from "./DivineSliderTheSliderToEndAllSliders.js";
 
-const MeatModal = () => {
+const MeatModal = (props) => {
     const [visible, setVisibility] = useState(false);
-    const [servings, setServings] = useState({})
     const handleOpen = () => { setVisibility(true) };
-    const handleClose = () => { 
-        setVisibility(false) 
-        console.log(servings)
-    };
-    const serv = (type, servs) => {
-        servings[type] = servs;
-    };
+    const handleClose = () => { setVisibility(false) };
     return (
         <>
             <span className="AddDetailsMeat" onClick={handleOpen}>
@@ -30,13 +19,13 @@ const MeatModal = () => {
             <Modal size="lg" show={visible} onHide={handleClose}>
                 <Modal.Body> 
                     <h3>How often did you eat <b>beef</b>?</h3>
-                    <BeefSlider save={serv} servs={servings}/>
+                    <DivineSliderTheSliderToEndAllSliders id='beef' save={props.serv} servs={props.servs}/>
                     <h3>How often did you eat <b>lamb</b>?</h3>
-                    <TestSlider />
+                    <DivineSliderTheSliderToEndAllSliders id='lamb' save={props.serv} servs={props.servs}/>
                     <h3>How often did you eat <b>pork</b>?</h3>
-                    <PorkSlider />
+                    <DivineSliderTheSliderToEndAllSliders id='pork' save={props.serv} servs={props.servs}/>
                     <h3>How often did you eat <b>poultry</b>?</h3>
-                    <PoultrySlider />
+                    <DivineSliderTheSliderToEndAllSliders id='poultry' save={props.serv} servs={props.servs}/>
                 
                 </Modal.Body>
             </Modal>
