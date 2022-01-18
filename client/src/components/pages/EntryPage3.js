@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./EntryPage.css";
 import { Link } from "@reach/router";
 import LocalSlider from "../modules/LocalSlider.js";
+import DivineSliderTheSliderToEndAllSliders from "../modules/DivineSliderTheSliderToEndAllSliders.js";
 
 const EntryPage3 = () => {
     /*useEffect(() => {

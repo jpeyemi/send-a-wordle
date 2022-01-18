@@ -14,7 +14,7 @@ import Graph from "../modules/Graph.js";
 const Journey = (props) => { //pass user info to Journey
     const [entries, setEntries] = useState([]);
     const [scores, setScores] = useState([]);
-    const [data, setData] =useState([]);
+    const [data, setData] =useState({});
 
     const makeScores = (entryObjs) => {
         let scores = entryObjs.map((entryObj) => (
@@ -23,37 +23,39 @@ const Journey = (props) => { //pass user info to Journey
         setScores(scores)
     }
     const makeData = (entryObjs) => {
-        let dict = {}
+        //let data = {}
         let time = " "
         for(let entry in entryObjs){
             time = String(entryObjs[entry].timestamp).substring(0,10)
-            if(Object.keys(dict).includes(time)){
-                dict[time] = [dict[time][0]+entryObjs[entry].score, dict[time][1]+1]
+            if(Object.keys(data).includes(time)){
+                data[time] = [data[time][0]+entryObjs[entry].score, data[time][1]+1]
             }else{
-                dict[time] = [entryObjs[entry].score, 1]
+                data[time] = [entryObjs[entry].score, 1]
             }
         }
-        for(let key in dict){
-            dict[key] = dict[key][0]/dict[key][1]
+        for(let key in data){
+            data[key] = data[key][0]/data[key][1]
         }
-        setData(dict);
+        setData(data);
     }
 
     useEffect(() => {
         get("/api/entries", {user: props.userId}).then((entries) => {
             setEntries(entries.reverse());
             makeScores(entries);
-            makeData(entries);
+            makeData(entries.reverse());
         });//may change depending on format of passed user info
     }, []);
 
 
     const addNewEntry = (entryObj) => {
-        setEntries([entryObj].concat(entries));
+        setEntries([entryObj].concat(entries.reverse()));
         makeScores([entryObj].concat(entries));
+        makeData(entries.concat([entryObj]));
     };
 
     let entriesList = null;
+    let graph = null;
     const hasEntries = entries.length !== 0;
     if (hasEntries) {
         entriesList = entries.map((entryObj) => (
@@ -63,6 +65,7 @@ const Journey = (props) => { //pass user info to Journey
             _id = {entryObj._id}
         />
     ));
+        graph = (<Graph data={data}/>)
     } else {
         entriesList = <div>No Entries Yet!</div>;
     }
@@ -71,8 +74,10 @@ const Journey = (props) => { //pass user info to Journey
     
     return(
         <>
-            {<Graph data={data}/>}
+            <span className="u-inlineBlock">
             {<Stats scores={scores} />}
+            </span>
+            <span className="u-inlineBlock">{graph}</span>
             <Link to="/entry/1">
                 Entry
             </Link>
