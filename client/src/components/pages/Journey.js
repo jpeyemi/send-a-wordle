@@ -74,13 +74,17 @@ const Journey = (props) => { //pass user info to Journey
     
     return(
         <>
-            <span className="u-inlineBlock">
+            {graph}
+            {<Stats scores={scores}/>}
+            {/*<span className="u-inlineBlock">
             {<Stats scores={scores} />}
             </span>
-            <span className="u-inlineBlock">{graph}</span>
+    <span className="u-inlineBlock">{graph}</span>*/}
+            <div>
             <Link to="/entry/1">
                 Entry
             </Link>
+            </div>
             {props.userId && <NewEntry addNewEntry={addNewEntry} userId = {props.userId}/>}
             <div className ="App-entryContainer">
                 <div className = "App-entryTitle">
