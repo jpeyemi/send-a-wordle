@@ -33,7 +33,7 @@ const Stats = (props) => {
             <p> </p>
             <div className = "Stats-box">
                 <span className = "Stats-labels">
-                    Precent Improval: 
+                    Percent Improval: 
                 </span>
                 <span className ="Stats-data">{}</span>
             </div>

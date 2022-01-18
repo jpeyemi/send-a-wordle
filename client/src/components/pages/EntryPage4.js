@@ -156,7 +156,7 @@ const EntryPage4 = (props) => {
             <br />
 
             <Link to="/journey/:userId" className="SubmitButton" 
-                onClick = {handleSubmit} > Submit
+                onClick = {handleSubmit}>Submit
             </Link>
 
             <Link to="/entry/3" className="LeftArrowContainer" 
