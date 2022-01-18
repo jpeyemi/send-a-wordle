@@ -19,7 +19,7 @@ const EntryPage4 = (props) => {
                     "non":0.7, "rice":1.2, "soy":1, "oat":0.9, "almond":0.7};
 
     const defaultVal = {"meat":2, "beef":1, "lamb":1, "pork":1, "poultry":1, "dairy":2, 
-                    "non":0.25, "rice":1, "soy":1, "oat":1, "almond":1};
+                    "non":0.25, "rice":1, "soy":1, "oat":1, "almond":1, "local":0.25};
 
     const ozTog = 28.3495;
     const gPerServ = 3 * ozTog;
@@ -59,10 +59,10 @@ const EntryPage4 = (props) => {
     const handleSubmit = () => {
         // calculate score
         let carbonScore = 0;
+        let localPercent = defaultVal["local"];
 
         // first look at locally produced
-        if (!sessionStorage.getItem("local")) { let localPercent = defaultVal["local"]; }
-        else { let localPercent = sessionStorage.getItem("local"); }
+        if (sessionStorage.getItem("local")) { let localPercent = sessionStorage.getItem("local"); }
         let normPercent = 1 - localPercent;
 
         // next, look at meat
@@ -118,17 +118,16 @@ const EntryPage4 = (props) => {
         // look at acai, etc.
         let consList = ["acai", "cocoa", "nuts", "gua"];
         for (const item of consList) {
-            if (sessionStorage.getItem(alt) && sessionStorage.getItem(alt) === true) {
+            if (sessionStorage.getItem(item)) {
                 carbonScore -= 5;
             }
         }
 
         // finished! time to post.
+        console.log(carbonScore);
         let val = Number(carbonScore);
         const body = {score: val, creator_id: props.userId, creator_name: "filler"};
-        post("/api/entry", body).then((entry) => {
-            props.addNewEntry(entry);
-        });
+        post("/api/entry", body);
     }
 
     return (
@@ -145,8 +144,9 @@ const EntryPage4 = (props) => {
             <Checkbox text="Guaraná berries" id="gua" save={serv} servs = {servings} />
             <br />
 
-            <Link to="/Journey" className="SubmitButton" 
-                onClick = {handleSubmit}> Submit
+            <Link to="/journey/:userId" className="SubmitButton" 
+                onClick = {handleSubmit}
+                onMouseOver = {handleSubmit}> Submit
             </Link>
 
             <Link to="/entry/3" className="LeftArrowContainer" 
