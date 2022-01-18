@@ -16,7 +16,8 @@ const MilkModal = (props) => {
                 Add Details
             </span>
             
-            <Modal size="lg" show={visible} onHide={handleClose}>
+            <div className = "modalDef">
+            <Modal className = "modalDef" size="lg" show={visible} onHide={handleClose}>
                 <Modal.Body> 
                     <h3>How often did you have <b>rice-based products</b>?</h3>
                     <DivineSliderTheSliderToEndAllSliders id='rice' save={props.serv} servs={props.servs}/>
@@ -29,6 +30,7 @@ const MilkModal = (props) => {
                 
                 </Modal.Body>
             </Modal>
+            </div>
         </>
     );
 };

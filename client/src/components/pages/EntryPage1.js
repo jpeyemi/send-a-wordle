@@ -44,13 +44,14 @@ const EntryPage1 = (props) => {
         for (const [key, value] of Object.entries(servings)) {
             sessionStorage.setItem(key, value);
         }
-        for (let i = 0; i < sessionStorage.length; i++) {
+        /*for (let i = 0; i < sessionStorage.length; i++) {
             console.log(JSON.stringify(sessionStorage.key(i)) + ", " + sessionStorage.getItem(sessionStorage.key(i)));
-        }
+        }*/
     }
 
     return (
         <>
+        <div className="entryBody">
             <h6 className="EntryPageHeader">ANIMAL PRODUCTS</h6>
             <h2 className="EntryPageQuestion">How often did you eat meat?</h2>
             {/*<Slider handleChange={getData} />*/}
@@ -67,7 +68,7 @@ const EntryPage1 = (props) => {
                 onClick = { handleClick }>
                 <div className="RightArrow" />
             </Link>
-
+        </div>
         </> 
     );
 };

@@ -120,19 +120,29 @@ const EntryPage4 = (props) => {
         let consList = ["acai", "cocoa", "nuts", "gua"];
         for (const item of consList) {
             if (sessionStorage.getItem(item)) {
-                carbonScore -= 5;
+                carbonScore -= 2.5;
             }
         }
 
+        // capping
+        // cap:143.22167399999998
+        let cap = 85;
+        if (carbonScore > cap) {
+            carbonScore = cap;
+        }
+
+        // calculating out of 100
+        let carbonActual = (Number(carbonScore) / cap) * 100;
+        let val = Math.round(carbonActual);
+
         // finished! time to post.
-        console.log(carbonScore);
-        let val = Number(Math.round(carbonScore));
-        const body = {score: val, creator_id: props.userId, creator_name: "filler"};
+        const body = {score: carbonActual, creator_id: props.userId, creator_name: "filler"};
         post("/api/entry", body);
     }
 
     return (
         <>
+        <div className="entryBody">
             <h6 className="EntryPageHeader">CONSERVE THE AMAZON</h6>
             <h2 className="EntryPageQuestion">How many of these foods did you eat?</h2>
             
@@ -154,7 +164,7 @@ const EntryPage4 = (props) => {
                 onClick = {handleClick} >
                 <div className="LeftArrow" />
             </Link>
-            
+            </div>
         </> 
     );
 };

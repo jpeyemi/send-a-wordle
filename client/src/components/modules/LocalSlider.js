@@ -46,7 +46,7 @@ const LocalSlider = (props) => {
 </div>
 <br />
 
-<span className="test" id="localText">25.5%</span>
+<span className="test" id="localText">50%</span>
 
 </>
     );
