@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Checkbox.css";
 
 const Checkbox = (props) => {
+    
     const idName = "Checkbox" + props.id;
     const [isChecked, setChecked] = useState(false);
 
@@ -14,6 +15,8 @@ const Checkbox = (props) => {
         } else {
             document.getElementById(idName).classList.remove("CheckboxButtonClicked");
         }
+
+        props.save(props.id, isChecked)
     }
 
     return(

@@ -6,12 +6,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./EntryPage.css";
 import { Link } from "@reach/router";
 
-const EntryPage1 = () => {
+const EntryPage1 = (props) => {
     
     const [servings, setServings] = useState({})
     const serv = (type, servs) => {
         servings[type] = servs;
-        console.log(servings);
+        //console.log(console.log(JSON.stringify(servings)));
     };
 
     const handleRightArrowHover = () => {
@@ -37,7 +37,16 @@ const EntryPage1 = () => {
     }
 
     const getData = (data) => {
-        console.log(data);
+        //console.log(data);
+    }
+
+    const handleClick = () => {
+        for (const [key, value] of Object.entries(servings)) {
+            sessionStorage.setItem(key, value);
+        }
+        for (let i = 0; i < sessionStorage.length; i++) {
+            console.log(JSON.stringify(sessionStorage.key(i)) + ", " + sessionStorage.getItem(sessionStorage.key(i)));
+        }
     }
 
     return (
@@ -54,7 +63,8 @@ const EntryPage1 = () => {
             <DivineSliderTheSliderToEndAllSliders id='dairy' save={serv} servs={servings}/>
 
             <Link to="/entry/2" className="RightArrowContainer" 
-                onMouseOver = { handleRightArrowHover } >
+                onMouseOver = { handleRightArrowHover } 
+                onClick = { handleClick }>
                 <div className="RightArrow" />
             </Link>
 
