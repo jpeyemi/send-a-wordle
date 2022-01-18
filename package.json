@@ -16,11 +16,7 @@
   "license": "ISC",
   "homepage": "",
   "engines": {
-<<<<<<< HEAD
-    "node": ">=16.x",
-=======
     "node": "16.x",
->>>>>>> 7a877a8d0803d132a6a938dee048ed3894569c7b
     "npm": ">=8.0.0"
   },
   "dependencies": {
