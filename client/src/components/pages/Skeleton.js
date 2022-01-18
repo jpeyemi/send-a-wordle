@@ -6,7 +6,7 @@ import "../../utilities.css";
 import "./Skeleton.css";
 
 //TODO: REPLACE WITH YOUR OWN CLIENT_ID
-const GOOGLE_CLIENT_ID = "236492685746-64epu7jav5v6sj1qcrk22frf7e3b7f1s.apps.googleusercontent.com";
+const GOOGLE_CLIENT_ID = "3024251785-1qunded9hga5p3h24s9fq9vg0gb1lcqm.apps.googleusercontent.com";
 
 const Skeleton = ({ userId}) => {
   const handleClick = (event) => {
