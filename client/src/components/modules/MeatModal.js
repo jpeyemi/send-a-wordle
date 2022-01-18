@@ -12,11 +12,12 @@ const MeatModal = (props) => {
     const handleClose = () => { setVisibility(false) };
     return (
         <>
+         <div className = "modalDef">
             <span className="AddDetailsMeat" onClick={handleOpen}>
                 Add Details
             </span>
-            
-            <Modal size="lg" show={visible} onHide={handleClose}>
+           
+            <Modal className = "modalDef" size="lg" show={visible} onHide={handleClose}>
                 <Modal.Body> 
                     <h3>How often did you eat <b>beef</b>?</h3>
                     <DivineSliderTheSliderToEndAllSliders id='beef' save={props.serv} servs={props.servs}/>
@@ -29,6 +30,7 @@ const MeatModal = (props) => {
                 
                 </Modal.Body>
             </Modal>
+            </div>
         </>
     );
 };

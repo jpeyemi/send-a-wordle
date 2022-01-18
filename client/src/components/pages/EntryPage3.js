@@ -17,9 +17,9 @@ const EntryPage3 = (props) => {
         for (const [key, value] of Object.entries(servings)) {
             sessionStorage.setItem(key, value);
         }
-        for (let i = 0; i < sessionStorage.length; i++) {
+        /*for (let i = 0; i < sessionStorage.length; i++) {
             console.log(JSON.stringify(sessionStorage.key(i)) + ", " + sessionStorage.getItem(sessionStorage.key(i)));
-        }
+        }*/
     }
 
     const handleRightArrowHover = () => {
@@ -46,6 +46,7 @@ const EntryPage3 = (props) => {
 
     return (
         <>
+        <div className="entryBody">
             <h6 className="EntryPageHeader">LOCAL PRODUCE</h6>
             <h2 className="EntryPageQuestion">How much of your diet was locally grown or produced?</h2>
             <LocalSlider id='local' save={serv} servs = {servings} />
@@ -62,7 +63,7 @@ const EntryPage3 = (props) => {
                 onClick = { handleClick } >
                 <div className="LeftArrow" />
             </Link>
-            
+            </div>
         </> 
     );
 };

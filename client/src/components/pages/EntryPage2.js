@@ -15,9 +15,9 @@ const EntryPage2 = (props) => {
         for (const [key, value] of Object.entries(servings)) {
             sessionStorage.setItem(key, value);
         }
-        for (let i = 0; i < sessionStorage.length; i++) {
+        /*for (let i = 0; i < sessionStorage.length; i++) {
             console.log(JSON.stringify(sessionStorage.key(i)) + ", " + sessionStorage.getItem(sessionStorage.key(i)));
-        }
+        }*/
     }
 
     const handleRightArrowHover = () => {
@@ -29,9 +29,9 @@ const EntryPage2 = (props) => {
             duration: 700,
             iterations: 2
         });
-        for (let i = 0; i < sessionStorage.length; i++) {
+        /*for (let i = 0; i < sessionStorage.length; i++) {
             console.log(JSON.stringify(sessionStorage.key(i)) + ", " + sessionStorage.getItem(sessionStorage.key(i)));
-        }
+        }*/
     }
 
     const handleLeftArrowHover = () => {
@@ -47,6 +47,7 @@ const EntryPage2 = (props) => {
 
     return (
         <>
+        <div className="entryBody">
             <h6 className="EntryPageHeader">VEGAN ALTERNATIVES</h6>
             <h2 className="EntryPageQuestion">How often did you consume plant-based alternatives?</h2>
             <DivineSliderTheSliderToEndAllSliders id='non' save={serv} servs = {servings}/>
@@ -63,8 +64,9 @@ const EntryPage2 = (props) => {
                 onMouseOver = { handleLeftArrowHover } 
                 onClick = { handleClick } >
                 <div className="LeftArrow" />
+        
             </Link>
-            
+            </div>
         </> 
     );
 };
