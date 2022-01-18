@@ -13,8 +13,41 @@ const Graph = (props) => {
     let myChart = document.getElementById('myChart')
     let xValues = Object.keys(props.data)
     let yValues = Object.values(props.data)
-    const[exist,setExist] = useState(false);
     const[graph,setGraph] = useState();
+    const[exist,setExist] = useState(false);
+    let animation = (()=>{
+        const totalDuration = 10000;
+const delayBetweenPoints = totalDuration / props.data.size;
+const previousY = (ctx) => ctx.index === 0 ? ctx.chart.scales.y.getPixelForValue(100) : ctx.chart.getDatasetMeta(ctx.datasetIndex).data[ctx.index - 1].getProps(['y'], true).y;
+const animation = {
+  x: {
+    type: 'number',
+    easing: 'linear',
+    duration: delayBetweenPoints,
+    from: NaN, // the point is initially skipped
+    delay(ctx) {
+      if (ctx.type !== 'data' || ctx.xStarted) {
+        return 0;
+      }
+      ctx.xStarted = true;
+      return ctx.index * delayBetweenPoints;
+    }
+  },
+  y: {
+    type: 'number',
+    easing: 'linear',
+    duration: delayBetweenPoints,
+    from: previousY,
+    delay(ctx) {
+      if (ctx.type !== 'data' || ctx.yStarted) {
+        return 0;
+      }
+      ctx.yStarted = true;
+      return ctx.index * delayBetweenPoints;
+    }
+  }
+};
+    })
     useEffect(()=> {
         console.log(get("../api/whoami"));
         console.log(props.data);
@@ -39,6 +72,10 @@ const Graph = (props) => {
                         }]
                     },
                     options:{
+                        animation,
+                        interaction: {
+                            intersect: false
+                        },
                         legend: {display: false},
                         plugins: {
                             title: {
@@ -47,6 +84,17 @@ const Graph = (props) => {
                             }
                           },
                           scales: {
+                            /*x: {
+                                type: 'time',
+                                time: {
+                                  // Luxon format string
+                                  tooltipFormat: 'MM-dd-yyyy'
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Date'
+                                  }
+                                },*/
                             y: {
                               min: 0,
                               max: 100,

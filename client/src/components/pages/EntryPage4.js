@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./EntryPage.css";
 import { Link } from "@reach/router";
 import Checkbox from "../modules/Checkbox.js";
+import { post } from "../../utilities";
 
 const EntryPage4 = (props) => {
     /*useEffect(() => {
@@ -125,7 +126,7 @@ const EntryPage4 = (props) => {
 
         // finished! time to post.
         console.log(carbonScore);
-        let val = Number(carbonScore);
+        let val = Number(Math.round(carbonScore));
         const body = {score: val, creator_id: props.userId, creator_name: "filler"};
         post("/api/entry", body);
     }
@@ -145,8 +146,7 @@ const EntryPage4 = (props) => {
             <br />
 
             <Link to="/journey/:userId" className="SubmitButton" 
-                onClick = {handleSubmit}
-                onMouseOver = {handleSubmit}> Submit
+                onClick = {handleSubmit}>Submit
             </Link>
 
             <Link to="/entry/3" className="LeftArrowContainer" 

@@ -85,7 +85,7 @@ const Journey = (props) => { //pass user info to Journey
                 Entry
             </Link>
             </div>
-            {props.userId && <NewEntry addNewEntry={addNewEntry} userId = {props.userId}/>}
+            {/*props.userId && <NewEntry addNewEntry={addNewEntry} userId = {props.userId}/>*/}
             <div className ="App-entryContainer">
                 <div className = "App-entryTitle">
                     Entries
