@@ -35,9 +35,9 @@ const DivineSliderTheSliderToEndAllSliders = (props) => {
                 break
             }
         }
-        if(numServ == 1){
+        if (numServ == 1){
             te.textContent = String(numServ) + " serving"
-        }else{
+        } else {
             te.textContent = String(numServ) + " servings"
         }
         props.save(props.id, numServ)
