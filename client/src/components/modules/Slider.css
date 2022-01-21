@@ -185,6 +185,7 @@
     font-family: 'Inter', sans-serif;
     color: #475149; 
     margin-bottom: 10px;
+    white-space:nowrap;
 }
 
 #beefText {
@@ -502,4 +503,13 @@
 
 #localright {
     right: -43px;
+}
+
+.extrainfo {
+    font-style:italic;
+    color:#969A97;
+}
+
+.ui {
+    margin-bottom: 0px;
 }

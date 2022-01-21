@@ -30,9 +30,9 @@ const EntryPage4 = (props) => {
         for (const [key, value] of Object.entries(servings)) {
             sessionStorage.setItem(key, value);
         }
-        for (let i = 0; i < sessionStorage.length; i++) {
+        /*for (let i = 0; i < sessionStorage.length; i++) {
             console.log(JSON.stringify(sessionStorage.key(i)) + ", " + sessionStorage.getItem(sessionStorage.key(i)));
-        }
+        }*/
     }
 
     const handleRightArrowHover = () => {
@@ -137,7 +137,7 @@ const EntryPage4 = (props) => {
 
         // finished! time to post.
         const body = {score: carbonActual, creator_id: props.userId, creator_name: "filler"};
-        post("/api/entry", body);
+        //post("/api/entry", body);
     }
 
     return (
