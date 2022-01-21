@@ -136,8 +136,8 @@ const EntryPage4 = (props) => {
         let val = Math.round(carbonActual);
 
         // finished! time to post.
-        const body = {score: carbonActual, creator_id: props.userId, creator_name: "filler"};
-        //post("/api/entry", body);
+        const body = {score: val, creator_id: props.userId};
+        post("/api/entry", body);
     }
 
     return (
