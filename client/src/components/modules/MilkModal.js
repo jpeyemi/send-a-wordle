@@ -20,13 +20,13 @@ const MilkModal = (props) => {
             <Modal className = "modalDef" size="lg" show={visible} onHide={handleClose}>
                 <Modal.Body> 
                     <h3>How often did you have <b>rice-based products</b>?</h3>
-                    <DivineSliderTheSliderToEndAllSliders id='rice' save={props.serv} servs={props.servs}/>
+                    <DivineSliderTheSliderToEndAllSliders id='rice' save={props.serv} servs={props.servs} find = {props.find}/>
                     <h3>How often did you eat <b>soy-based products</b>?</h3>
-                    <DivineSliderTheSliderToEndAllSliders id='soy' save={props.serv} servs={props.servs}/>
+                    <DivineSliderTheSliderToEndAllSliders id='soy' save={props.serv} servs={props.servs} find = {props.find}/>
                     <h3>How often did you eat <b>oat-based products</b>?</h3>
-                    <DivineSliderTheSliderToEndAllSliders id='oat' save={props.serv} servs={props.servs}/>
+                    <DivineSliderTheSliderToEndAllSliders id='oat' save={props.serv} servs={props.servs} find = {props.find}/>
                     <h3>How often did you eat <b>almond-based products</b>?</h3>
-                    <DivineSliderTheSliderToEndAllSliders id='almond' save={props.serv} servs={props.servs}/>
+                    <DivineSliderTheSliderToEndAllSliders id='almond' save={props.serv} servs={props.servs} find = {props.find}/>
                 
                 </Modal.Body>
             </Modal>

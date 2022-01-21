@@ -6,6 +6,23 @@ import DivineSliderTheSliderToEndAllSliders from "../modules/DivineSliderTheSlid
 
 const EntryPage2 = (props) => {
 
+    const keys = ["meat", "beef", "lamb", "pork", "poultry", "dairy", "non", "rice", "soy", "oat", "almond", "local"];
+
+    //const mapV = ["Never", "Rarely", "Sometimes", "Often",  "Very Often"];
+    const mapV = [1, 2, 3, 4, 5];
+    const mapL = [0, 1, 34, 67, 100]
+    const mapU = [0, 33, 66, 99, 100];
+
+    const [isLoaded, setLoaded] = useState(false)
+    
+    const findTxt = (num) => {
+        for (let i = 0; i < mapV.length; i++) {
+            if (num >= mapL[i] && num <= mapU[i]) {
+                return mapV[i];
+            }
+        }
+    }
+
     const [servings, setServings] = useState({})
     const serv = (type, servs) => {
         servings[type] = servs;
@@ -50,9 +67,9 @@ const EntryPage2 = (props) => {
         <div className="entryBody">
             <h6 className="EntryPageHeader">VEGAN ALTERNATIVES</h6>
             <h2 className="EntryPageQuestion">How often did you consume plant-based alternatives?</h2>
-            <DivineSliderTheSliderToEndAllSliders id='non' save={serv} servs = {servings}/>
+            <DivineSliderTheSliderToEndAllSliders id='non' save={serv} servs = {servings} find = {findTxt} />
             <br />
-            <MilkModal serv={serv} servs={servings}/>
+            <MilkModal serv={serv} servs={servings} find = {findTxt} />
 
             <Link to="/entry/3" className="RightArrowContainer" 
                 onMouseOver = { handleRightArrowHover } 
