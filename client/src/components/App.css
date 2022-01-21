@@ -9,6 +9,7 @@
   border-top-left-radius: var(--m);
   border-top-right-radius: var(--m);
   margin-top: var(--l);
+  background-color: var(--white); 
 }
 
 .App-entryTitle{
@@ -20,4 +21,8 @@
   padding: var(--s);
   padding-left: var(--l);
   
+}
+
+.App-Graph{
+  margin-bottom: 30px;
 }

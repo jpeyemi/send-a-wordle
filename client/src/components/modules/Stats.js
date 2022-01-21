@@ -17,26 +17,14 @@ const Stats = (props) => {
     }
     return(
         <div className = "Stats-container">
-            <div className = "Stats-box">
                 <span className = "Stats-labels">
                     Best Score:
                 </span>
                 <span className ="Stats-data">{min}</span>
-            </div>
-            <p> </p>
-            <div className = "Stats-box">
                 <span className = "Stats-labels">
                     Average: 
                 </span>
                 <span className ="Stats-data">{Math.round(avg)}</span>
-            </div>
-            <p> </p>
-            <div className = "Stats-box">
-                <span className = "Stats-labels">
-                    Percent Improval: 
-                </span>
-                <span className ="Stats-data">{}</span>
-            </div>
         </div>
     )
 }

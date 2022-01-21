@@ -27,6 +27,12 @@
   --grey: #5c5c5c;
   --white: #fff;
   --black: #475149;
+  --gold: rgba(255, 174, 0, 0.678);
+  --silver: rgba(235, 235, 235, 0.911);
+  --bronze: rgba(161, 73, 1, 0.76);
+  --darkgreen: rgba(93, 110, 97, 1);
+  --dimgreen: rgb(111, 141, 123);
+  --brightgreen: rgb(56, 160, 7);
 
   --xs: 4px;
   --s: 8px;

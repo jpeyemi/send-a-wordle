@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { get } from "../../utilities";
 import CardL from "../modules/CardL.js";
-import "../App.css"
+import "../App.css";
+import "./Leaderboard.css";
+import "../../utilities.css";
 
 
 const Leaderboard = (props) => {
@@ -78,48 +80,34 @@ const Leaderboard = (props) => {
             avg = {dict[user]}
             userId = {user}
             map = {daniel}
+            place = {sortUseravg.indexOf(user)}
         />
     ));
     } else {
         avgList = <div>No Users</div>;
     }
-    /*useEffect( () => {
-        setAvgLoaded(true) 
-    }, [dict])*/
-   /* useEffect(() => {
-        let dict = {}
-        let scores = null
-        let avg = null
-        for(let i = 0; i < users.length; i++){
-            get("/api/entries", {user: users[i]._id}).then((entries) => {
-                scores = entries.map((entryObj) => (
-                    Number(entryObj.score)
-                ))
-                avg = 0
-                for (let j = 0; j < scores.length ;j++){
-                    avg += scores[j]
-                }
-                avg/=scores.length
-                dict[users[i]] = Math.round(avg) 
-                if(dict.size() === users.length){
-                    setAvgLoaded(true)
-                }
-            })
-        }
-        console.log(Object.keys(dict))
-        setDict(dict)
-        sortUseravg = Object.keys(dict).sort((a,b) => dict[a] - dict[b])
-    }, [users]); */
-    
 
     return(
         <>
-            <div className ="App-entryContainer">
-                <div className = "App-entryTitle">
-                    Leaderboard
+        <div className = "entireBody">
+            <div>
+                <div className = "Title">
+                    Leaderboards
                 </div>
-                {avgList}
+                <div className = " Board u-inlineBlock"> 
+                    <div className = "BoardTitle"> 
+                    Average Emmision Score
+                    </div>
+                    {avgList}
+                </div>
+                <div className = "Board u-inlineBlock">
+                    <div className = "BoardTitle"> 
+                        Coolness
+                    </div>
+                    {avgList}
+                </div>
             </div>
+        </div>
         </>
     )
 }

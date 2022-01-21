@@ -4,6 +4,7 @@ import { get } from "../../utilities";
 import "../App.css"
 import { Chart } from "chart.js";
 import * as Chartjs from "chart.js";
+import 'chartjs-adapter-moment';
 const controllers = Object.values(Chartjs).filter(
     (chart) => chart.id !== undefined
   );
@@ -15,39 +16,23 @@ const Graph = (props) => {
     let yValues = Object.values(props.data)
     const[graph,setGraph] = useState();
     const[exist,setExist] = useState(false);
-    let animation = (()=>{
-        const totalDuration = 10000;
-const delayBetweenPoints = totalDuration / props.data.size;
-const previousY = (ctx) => ctx.index === 0 ? ctx.chart.scales.y.getPixelForValue(100) : ctx.chart.getDatasetMeta(ctx.datasetIndex).data[ctx.index - 1].getProps(['y'], true).y;
-const animation = {
-  x: {
-    type: 'number',
-    easing: 'linear',
-    duration: delayBetweenPoints,
-    from: NaN, // the point is initially skipped
-    delay(ctx) {
-      if (ctx.type !== 'data' || ctx.xStarted) {
-        return 0;
-      }
-      ctx.xStarted = true;
-      return ctx.index * delayBetweenPoints;
-    }
-  },
-  y: {
-    type: 'number',
-    easing: 'linear',
-    duration: delayBetweenPoints,
-    from: previousY,
-    delay(ctx) {
-      if (ctx.type !== 'data' || ctx.yStarted) {
-        return 0;
-      }
-      ctx.yStarted = true;
-      return ctx.index * delayBetweenPoints;
-    }
-  }
-};
-    })
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>;
+    <html>
+      <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width"/>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@0.1.1"></script>
+        <title>repl.it</title>
+      </head>
+      <body>
+        <canvas></canvas>
+        <script src="new.ts"></script>
+      </body>
+    </html>
+
     useEffect(()=> {
         console.log(get("../api/whoami"));
         console.log(props.data);
@@ -56,6 +41,10 @@ const animation = {
                 //let xValues = [50,60,70,80,90,100,110,120,130,140,150];
                 //let yValues = [7,8,8,9,9,9,10,11,14,14,15];
                 let xValues = Object.keys(props.data)
+                let xval = xValues.map((val) => (
+                  new Date(val)
+                ));
+              
                 let yValues = Object.values(props.data)
                 console.log(xValues)
 
@@ -66,35 +55,33 @@ const animation = {
                     data: {
                         labels: xValues,
                         datasets: [{
+                            label: "poggers",
                             backgroundColor: "rgba(0,0,0,1.0)",
-                            borderColor: "rgba(0,0,0,0.1)",
+                            borderColor: "rgba(0,90,0,.2)",
                             data: yValues,
                         }]
                     },
                     options:{
-                        animation,
-                        interaction: {
-                            intersect: false
-                        },
                         legend: {display: false},
                         plugins: {
                             title: {
                               display: true,
-                              text: 'Your Progress'
+                              text: 'Your Progress',
+                              fullSize: true
                             }
                           },
                           scales: {
-                            /*x: {
+                            //adapters.date, 
+                            x: {
                                 type: 'time',
                                 time: {
-                                  // Luxon format string
-                                  tooltipFormat: 'MM-dd-yyyy'
+                                  unit: 'day'
                                 },
                                 title: {
                                     display: true,
                                     text: 'Date'
                                   }
-                                },*/
+                                },
                             y: {
                               min: 0,
                               max: 100,
@@ -112,8 +99,7 @@ const animation = {
         graph.data.datasets.push(Object.values(props.data))
         //graph.update();
     }
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-
+    
     return(
         <>
         <canvas id="myChart"></canvas>
