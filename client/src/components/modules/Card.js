@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { get } from "../../utilities";
 import "./Card.css";
 const Card = (props) => {
+    let score = Math.round(props.entryObj.score)
     return (
         <div className = "Card-container">
             <span className = "Card-score">
-                {props.entryObj.score} 
+                {score} 
             </span>
             <span className = "Card-scoreText">
                 Emission Score

@@ -50,10 +50,18 @@ router.get("/entries", auth.ensureLoggedIn, (req,res) => {
   //res.send([])
 });
 
+router.get("/allEntries", (req,res) => {
+  Entry.find({}).then((entries) => {res.send(entries)});
+});
+
+router.get("/users", (req,res) => {
+  User.find({}).then((users) => {res.send(users)});
+});
+
 router.post("/entry", auth.ensureLoggedIn, (req,res) => {
   const newEntry = new Entry({
     creator_id: req.body.creator_id,
-    creator_name: req.body.creator_name,
+    creator_name: req.user.name,
     score: req.body.score, //command tbd
   });
   newEntry.save().then((entry) => res.send(entry));

@@ -60,8 +60,7 @@ const App = () => {
         <Router>
           <Skeleton path="/" userId={userId} />
           <Journey path="/journey/:userId"userId={userId}/>
-          {//<Leaderboard path = "/leaderboard/" userId = {userId}/>
-}
+          <Leaderboard path = "/leaderboard/" userId = {userId}/>
           <EntryPage1 path="/entry/1" userId={userId} />
           <EntryPage2 path="/entry/2" userId={userId} />
           <EntryPage3 path="/entry/3" userId={userId} />
