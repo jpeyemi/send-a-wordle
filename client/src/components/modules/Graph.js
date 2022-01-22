@@ -63,11 +63,14 @@ const Graph = (props) => {
                     },
                     options:{
                         legend: {display: false},
+                        tooltips: {
+                          titleFontSize: 14,
+                          //not working
+                        },
                         plugins: {
                             title: {
                               display: true,
                               text: 'Your Progress',
-                              fullSize: true
                             }
                           },
                           scales: {

@@ -14,7 +14,7 @@ const CardL = (props) => {
         }else if(num%10==3){
             res = String(num)+"rd"
         }else{
-            res = String(num)+"st"
+            res = String(num)+"th"
         }
         return res
     }
@@ -45,7 +45,7 @@ const CardL = (props) => {
             <span className = "Lt">
                  {props.map[props.userId]}
             </span>
-            <span className = "CardL-score">
+            <span className = "CardL-score2">
                 {props.avg} 
             </span>
             
