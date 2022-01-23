@@ -35,9 +35,9 @@ const EntryPage3 = (props) => {
     };
 
     const handleClick = () => {
-        for (const [key, value] of Object.entries(servings)) {
+        /*for (const [key, value] of Object.entries(servings)) {
             sessionStorage.setItem(key, value);
-        }
+        }*/
         /*for (let i = 0; i < sessionStorage.length; i++) {
             console.log(JSON.stringify(sessionStorage.key(i)) + ", " + sessionStorage.getItem(sessionStorage.key(i)));
         }*/

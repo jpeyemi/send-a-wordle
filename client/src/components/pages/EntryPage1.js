@@ -8,7 +8,9 @@ import { Link } from "@reach/router";
 
 const EntryPage1 = (props) => {
 
+    document.body.style = 'background: #D9E2DC;';
     const keys = ["meat", "beef", "lamb", "pork", "poultry", "dairy", "non", "rice", "soy", "oat", "almond", "local"];
+    const isTouched = ["meatTouched", "veganTouched"];
     const foods = ["acai", "cocoa", "nuts", "gua"];
 
     //const mapV = ["Never", "Rarely", "Sometimes", "Often",  "Very Often"];
@@ -41,6 +43,9 @@ const EntryPage1 = (props) => {
         for (const food of foods) {
             sessionStorage.setItem(food, false);
         }
+        for (const t of isTouched) {
+            sessionStorage.setItem(t, false);
+        }
         return Promise.resolve();
     }
     
@@ -72,9 +77,9 @@ const EntryPage1 = (props) => {
     }
 
     const handleClick = () => {
-        for (const [key, value] of Object.entries(servings)) {
+        /*for (const [key, value] of Object.entries(servings)) {
             sessionStorage.setItem(key, value);
-        }
+        }*/
         /*for (let i = 0; i < sessionStorage.length; i++) {
             console.log(JSON.stringify(sessionStorage.key(i)) + ", " + sessionStorage.getItem(sessionStorage.key(i)));
         }*/
