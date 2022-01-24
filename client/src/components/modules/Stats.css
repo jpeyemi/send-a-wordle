@@ -1,7 +1,10 @@
 .Stats-container{
     border: var(--darkgrey) 1px solid;
     padding: var(--m);
-    background-color: var(--primary--dim);
+    background-color: var(--white);
+    text-align: center;
+    border-radius: var(--l);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
 }
 
 .Stats-labels{
@@ -18,4 +21,10 @@
 
 .Stats-box{
     padding: 30px;
+}
+
+.range {
+    text-align: center;
+    place-items: center;
+    display: inline-block;
 }
