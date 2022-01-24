@@ -46,7 +46,47 @@ const Skeleton = ({ userId}) => {
         </div>
         </section>
         <section id="forest">
-        <h1 className = "forestText">Saving the rainforest</h1>
+        <div className = "forestText">Protect the forest. <br /> 
+        <div className = "forestBody"> Thousands of trees are cleared daily in the Amazon to produce pasture land for cattle 
+          ranching. By limiting your meat consumption and buying sustainably harvested forest products, 
+          you can help conserve it. </div> </div>
+        </section>
+        <section id="features">
+        <div className = "featuresTitle">How it Works
+        <p className = "featuresText">Take a few minutes to learn how your dietary choices influence your carbon footprint. 
+        Our free, interactive calculator generates your <span id="bolded">Emission Score</span> - a score from 0 to 100 that represents your impact 
+        on the Amazon.</p>  
+
+        <div class='tools'>
+  <div class='tool-item tool-one'>
+   <div class="firstContainer"> 
+    <div class="first"></div>
+   </div>
+      <div className = "featuresTextBolded One">Daily Quiz</div>
+      <div className = "featuresText One">Answer a few questions to discover how 
+      your food impacts the Amazon.</div>
+  </div>
+  <div class='tool-item tool-two'>
+  <div class="secondContainer">
+     <div class="second"></div>
+     </div>
+     <div className = "featuresTextBolded Two">Track your Progress</div>
+      <div className = "featuresText Two">Our Journey feature helps you understand your habits
+       and eat more mindfully.</div>
+  </div>
+  <div class='tool-item tool-three'>
+  <div class="thirdContainer"> <div class="third"></div></div>
+  <div className = "featuresTextBolded Three">Leaderboard</div>
+      <div className = "featuresText Three">Compete with friends and people around the globe for the best
+       Emission Score.</div>
+  </div>
+</div>
+<Link to="/entry/1" className="SubmitButton Fix" >
+                Start Today
+          </Link>
+        
+        </div>
+        
         </section>
    </>
   );
