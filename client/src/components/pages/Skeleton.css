@@ -5,17 +5,35 @@
     display: flex;
 }
 
+#features {
+    background-color: var(--white);
+    height: 120vh;
+    display: flex;
+    justify-content: center;
+}
+
+.featuresTitle {
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -1px;
+    font-weight: bold; 
+    color: #475149; 
+    font-size: 52pt;
+    line-height: 65px;
+    margin-top: 12%;
+    text-align: center;
+}
+
 #forest {
-    background-image: url("../../public/trees.jpg");
+    background-image: url("../../public/blur_edges.png");
     -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
     min-height: 120vh;
     display: flex;
-    min-width: 102vw;
+    min-width: 101vw;
     margin-left: -30%;
-    padding-top: 10%;
+    margin-top: -10%;
 }
 
 .leftContainer {
@@ -39,16 +57,18 @@
 
 .forestText {
     font-family: 'Inter', sans-serif;
-    text-align: center;
+    text-align: right;
     letter-spacing: -1px;
     font-weight: bold; 
-    color: #ffffff; 
-    margin-bottom: 35px;
+    color: #475149; 
     font-size: 52pt;
-    line-height: 65px;
-    display: inline-block;
-    margin-top: 0;
-    margin-left: 26%;
+    line-height: 75px;
+    margin-bottom: 0px;
+    padding: 0px;
+    height: 200px;
+    margin-left: 40%;
+    margin-top: 8%;
+    margin-right: 3%;
 }
 
 .bodyText {
@@ -58,6 +78,58 @@
     margin-bottom: 0px;
     font-size: 12pt;
     font-weight: 300px;
+}
+
+.featuresText {
+    font-family: 'Poppins', sans-serif;
+    font-weight: normal; 
+    color: #475149; 
+    font-size: 12pt;
+    font-weight: 300px;
+    margin-top: 4%;
+    line-height: 20px;
+    letter-spacing: 0px;
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
+.featuresTextBolded {
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -1px;
+    font-weight: bold; 
+    letter-spacing: 0.5px;
+    color: #475149; 
+    font-size: 14pt;
+    
+    margin-top: 10%;
+    line-height: 20px;
+}
+
+.One {
+    margin-left: 24%;
+}
+
+.Two {
+    margin-left: 12%;
+    margin-right: 12%;
+}
+
+.Three {
+    margin-left: 3%;
+    margin-right: 25%;
+}
+
+.forestBody {
+    font-family: 'Poppins', sans-serif;
+    font-weight: normal; 
+    color: #475149; 
+    margin-bottom: 0px;
+    font-size: 12pt;
+    font-weight: 300px;
+    margin-top: 4%;
+    line-height: 20px;
+    letter-spacing: 0px;
+    margin-left: 54%;
 }
 
 .footer {
@@ -96,6 +168,18 @@
 	transform: scale(1);
 	animation: pulse-dark 2s infinite;
     text-decoration: none
+}
+
+#bolded {
+    font-weight: 600px;
+    color: var(--primary);
+}
+
+.Fix {
+    font-weight: normal; 
+    font-size: 12pt;
+    letter-spacing: 0px;
+    margin-top: 10%;
 }
 
 .SubmitButton:hover {
@@ -166,3 +250,73 @@ margin-left: 30px;
 margin-bottom: 50px;
 margin-top:-30px;
 }
+
+.first {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+background-image: url("../../public/first.png");
+justify-content: right;
+border-radius: 50%;
+box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.2);
+
+}
+
+.firstContainer {
+    width: 225px;
+    height: 225px;
+    justify-content: right;
+    margin-left: 24%;
+}
+
+.second {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+background-image: url("../../public/second.png");
+justify-content: right;
+border-radius: 50%;
+box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.2);
+
+}
+
+.secondContainer {
+    width: 225px;
+    height: 225px;
+    justify-content: right;
+    margin-left: 13%;
+}
+
+
+.third {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+background-image: url("../../public/third.png");
+justify-content: center;
+align-items: center;
+border-radius: 50%;
+box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.2);
+
+}
+
+.thirdContainer {
+    width: 225px;
+    height: 225px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 3%;
+}
+
+
+.tools {
+    margin-top: 4%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .tool-item {
+    height: 320px;
+    flex: 1;
+  }
+
