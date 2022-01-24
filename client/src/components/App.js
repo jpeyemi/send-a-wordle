@@ -22,6 +22,7 @@ import EntryPage4 from "./pages/EntryPage4.js";
  */
 const App = () => {
   const [userId, setUserId] = useState(undefined);
+  const [name, setName] = useState(undefined);
 
   useEffect(() => {
     get("/api/whoami").then((user) => {
@@ -37,6 +38,7 @@ const App = () => {
     const userToken = res.tokenObj.id_token;
     post("/api/login", { token: userToken }).then((user) => {
       setUserId(user._id);
+      //setName(user.name);
       post("/api/initsocket", { socketid: socket.id }).then(() => {
         location.reload();
       });
@@ -46,6 +48,7 @@ const App = () => {
 
   const handleLogout = () => {
     setUserId(undefined);
+    setName(undefined)
     post("/api/logout");
   };
 
@@ -55,6 +58,7 @@ const App = () => {
         handleLogin={handleLogin}
         handleLogout={handleLogout}
         userId={userId}
+        name = {name}
       />
       <div className="App-container">
         <Router>

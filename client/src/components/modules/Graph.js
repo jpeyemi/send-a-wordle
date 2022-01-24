@@ -38,8 +38,6 @@ const Graph = (props) => {
         console.log(props.data);
         get("../api/whoami").then((am) => {
             if(am !== {}){
-                //let xValues = [50,60,70,80,90,100,110,120,130,140,150];
-                //let yValues = [7,8,8,9,9,9,10,11,14,14,15];
                 let xValues = Object.keys(props.data)
                 let xval = xValues.map((val) => (
                   new Date(val)
@@ -55,14 +53,20 @@ const Graph = (props) => {
                     data: {
                         labels: xValues,
                         datasets: [{
-                            label: "poggers",
-                            backgroundColor: "rgba(0,0,0,1.0)",
+                            label: "Emmision Score",
+                            backgroundColor: "rgba(0,90,0,1.0)",
                             borderColor: "rgba(0,90,0,.2)",
                             data: yValues,
                         }]
                     },
                     options:{
-                        legend: {display: false},
+                        legend: {display: true},
+                        title: {
+                          font: {
+                            size: 20,
+                            
+                          },
+                        },
                         tooltips: {
                           titleFontSize: 14,
                           //not working
@@ -71,6 +75,10 @@ const Graph = (props) => {
                             title: {
                               display: true,
                               text: 'Your Progress',
+                              font: {
+                                size: 30,
+                                family: "Inter",
+                              },
                             }
                           },
                           scales: {

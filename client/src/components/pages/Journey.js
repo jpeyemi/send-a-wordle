@@ -14,13 +14,19 @@ import Graph from "../modules/Graph.js";
 const Journey = (props) => { //pass user info to Journey
     const [entries, setEntries] = useState([]);
     const [scores, setScores] = useState([]);
+    const [wscores, setWScores] = useState([]);
     const [data, setData] =useState({});
 
     const makeScores = (entryObjs) => {
         let scores = entryObjs.map((entryObj) => (
             Number(entryObj.score)
         ));
-        setScores(scores)
+        let wentryObjs = entryObjs.slice(-7)
+        let wscores = wentryObjs.map((wentryObj) => (
+            Number(wentryObj.score)
+        ));
+        setWScores(wscores)
+        setScores(scores) 
     }
     const makeData = (entryObjs) => {
         //let data = {}
@@ -36,6 +42,10 @@ const Journey = (props) => { //pass user info to Journey
         for(let key in data){
             data[key] = data[key][0]/data[key][1]
         }
+        /*for(let entry in entryObjs){
+            time = String(entryObjs[entry].timestamp).substring(0,10)
+            data[time] = entryObjs[entry].score
+        }*/
         setData(data);
     }
 
@@ -78,7 +88,7 @@ const Journey = (props) => { //pass user info to Journey
                 {graph}
             </div>
             <span>
-            {<Stats scores={scores}/>}
+            {<Stats scores={scores} wscores={wscores}/>}
             </span>
             {/*<span className="u-inlineBlock">
             {<Stats scores={scores} />}

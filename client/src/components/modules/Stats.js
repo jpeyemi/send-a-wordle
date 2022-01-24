@@ -15,6 +15,12 @@ const Stats = (props) => {
             min = props.scores[i]
         }
     }
+    let wavg = 0
+    for (let i = 0; i < props.wscores.length ; i++){
+        wavg += props.wscores[i]
+    }
+    wavg/=props.wscores.length
+
     return(
         <div className = "Stats-container">
                 <span className = "Stats-labels">
@@ -25,6 +31,11 @@ const Stats = (props) => {
                     Average: 
                 </span>
                 <span className ="Stats-data">{Math.round(avg)}</span>
+                <span className = "Stats-labels">
+                    Last 7 Entries Avg: 
+                </span>
+                <span className ="Stats-data">{Math.round(wavg)}</span>
+                
         </div>
     )
 }

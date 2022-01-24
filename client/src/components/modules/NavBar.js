@@ -1,6 +1,7 @@
-import React from "react";
 import { Link } from "@reach/router";
 import GoogleLogin, { GoogleLogout } from "react-google-login";
+import React, { useState, useEffect } from "react";
+import { get, post } from "../../utilities";
 
 import "./NavBar.css";
 import "../../utilities.css";
@@ -11,9 +12,17 @@ const GOOGLE_CLIENT_ID = "3024251785-1qunded9hga5p3h24s9fq9vg0gb1lcqm.apps.googl
 /**
  * The navigation bar at the top of all pages. Takes no props.
  */
+
 const NavBar = (props) => {
+  const [name, setName] = useState(undefined)
+  useEffect(() => {
+    get("/api/whoami").then((user) => {
+      setName(user.name)
+    });
+  })
+  
   return (
-    <nav className="NavBar-container">
+    <nav className="NavBar-container parent">
       <div className="NavBar-title u-inlineBlock">rescue.rainforest</div>
       <div className="NavBar-linkContainer u-inlineBlock">
         <Link to="/" className="NavBar-link">
@@ -27,17 +36,24 @@ const NavBar = (props) => {
         <Link to="/leaderboard/" className="NavBar-link">
           Leaderboard
         </Link>
-        <Link to="/entry/1" className="NavBar-link">
-          Log Now
-      </Link>
+        
+      </div>
+      <div className = "NavBar-linkContainerR u-inlineBlock child"> 
+        
         {props.userId ? (
+          <>
+          <span className = "name"> 
+            Hello {name},
+          </span>
+          <Link to="/entry/1" className="NavBar-link NavBar-login">
+            Log Now!
+          </Link>
           <GoogleLogout
-            clientId={GOOGLE_CLIENT_ID}
-            buttonText="Logout"
-            onLogoutSuccess={props.handleLogout}
-            onFailure={(err) => console.log(err)}
-            className="NavBar-link NavBar-login"
-          />
+              clientId={GOOGLE_CLIENT_ID}
+              buttonText="Sign Out"
+              onLogoutSuccess={props.handleLogout}
+              onFailure={(err) => console.log(err)}
+              className="NavBar-link NavBar-login" /></>
         ) : (
           <GoogleLogin
             clientId={GOOGLE_CLIENT_ID}
