@@ -62,7 +62,7 @@ const App = () => {
       />
       <div className="App-container">
         <Router>
-          <Skeleton path="/" userId={userId} />
+          <Skeleton path="/" userId={userId} handleLogin={handleLogin} />
           <Journey path="/journey/:userId"userId={userId}/>
           <Leaderboard path = "/leaderboard/" userId = {userId}/>
           <EntryPage1 path="/entry/1" userId={userId} />

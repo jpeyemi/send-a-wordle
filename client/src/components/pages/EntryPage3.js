@@ -70,6 +70,7 @@ const EntryPage3 = (props) => {
         <div className="entryBody">
             <h6 className="EntryPageHeader">LOCAL PRODUCE</h6>
             <h2 className="EntryPageQuestion">How much of your diet was locally grown or produced?</h2>
+            <div className="EntryPageNote">(food produced less than 400 miles away)</div>
             <LocalSlider id='local' save={serv} servs = {servings} find = { addPerc } />
             <br />
 

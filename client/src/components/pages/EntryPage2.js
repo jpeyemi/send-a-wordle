@@ -67,6 +67,7 @@ const EntryPage2 = (props) => {
         <div className="entryBody">
             <h6 className="EntryPageHeader">VEGAN ALTERNATIVES</h6>
             <h2 className="EntryPageQuestion">How often did you consume plant-based alternatives?</h2>
+            <div className="EntryPageNote">(meat substitutes derived from plants such as soy)</div>
             <DivineSliderTheSliderToEndAllSliders id='non' save={serv} servs = {servings} find = {findTxt} />
             <br />
             <MilkModal serv={serv} servs={servings} find = {findTxt} />
