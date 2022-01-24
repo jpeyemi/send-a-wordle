@@ -26,6 +26,7 @@ const Skeleton = ({ userId}) => {
 
   return (
     <>
+    <section id="intro">
       <div class='footer' id="skel">
           <div class='footer-item footer-one'>
             <h1 className = "titleText">What we eat matters.</h1>
@@ -43,7 +44,10 @@ const Skeleton = ({ userId}) => {
             {canSee && <div className="cursed"> </div>}
           </div>
         </div>
-        
+        </section>
+        <section id="forest">
+        <h1 className = "forestText">Saving the rainforest</h1>
+        </section>
    </>
   );
 };

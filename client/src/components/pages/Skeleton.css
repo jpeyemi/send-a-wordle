@@ -1,6 +1,21 @@
 /* Fill me in :) */
-#skel {
+#intro {
     background-color: var(white);
+    height: 100vh;
+    display: flex;
+}
+
+#forest {
+    background-image: url("../../public/trees.jpg");
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+    min-height: 120vh;
+    display: flex;
+    min-width: 102vw;
+    margin-left: -30%;
+    padding-top: 10%;
 }
 
 .leftContainer {
@@ -19,6 +34,21 @@
     font-size: 52pt;
     line-height: 65px;
     margin-top: 10px;
+    padding-top: -10%;
+}
+
+.forestText {
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    letter-spacing: -1px;
+    font-weight: bold; 
+    color: #ffffff; 
+    margin-bottom: 35px;
+    font-size: 52pt;
+    line-height: 65px;
+    display: inline-block;
+    margin-top: 0;
+    margin-left: 26%;
 }
 
 .bodyText {
