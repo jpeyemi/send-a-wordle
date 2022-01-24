@@ -16,6 +16,7 @@
 
 .Board{
     padding: 40px;
+    vertical-align: top;
 }
 
 .BoardTitle{
