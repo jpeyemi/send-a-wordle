@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Component } from "react";
 import GoogleLogin, { GoogleLogout } from "react-google-login";
 import { Link } from "@reach/router";
-import Checkbox from "../modules/Checkbox.js";
+import LoginModal from "../modules/LoginModal.js";
 
 import "../../utilities.css";
 import "./Skeleton.css";
@@ -9,19 +9,32 @@ import "./Skeleton.css";
 //TODO: REPLACE WITH YOUR OWN CLIENT_ID
 const GOOGLE_CLIENT_ID = "3024251785-1qunded9hga5p3h24s9fq9vg0gb1lcqm.apps.googleusercontent.com";
 
-const Skeleton = ({ userId}) => {
+const Skeleton = (props) => {
   const [val, setVal] = useState(0);
   const [canSee, setSee] = useState(false);
+  const [isLogged, setLogged] = useState(false);
 
   document.body.style = 'background: #fff;';
 
   console.log(canSee);
+
+  useEffect(() => {
+    if (props.userId === undefined) {
+      setLogged(false);
+    } else {
+      setLogged(true);
+    }
+  });
 
   const increment = () => {
     setVal(val + 1);
     if (val === 10) {
       setSee(true);
     }
+  };
+
+  const login = () => {
+    
   };
 
   return (
@@ -34,9 +47,8 @@ const Skeleton = ({ userId}) => {
         and our everyday food choices directly impact its future. 
         Take your first step towards stabilizing the Amazonian forest 
         frontier today.</p>
-        <Link to="/entry/1" className="SubmitButton" >
-                Start your Journey
-          </Link>
+        {isLogged && <Link to="/entry/1" className="SubmitButton">Start your Journey</Link> }
+        {!isLogged && <LoginModal handleLogin={props.handleLogin} /> }
           </div>
           
           <div class='footer-item footer-two'>
@@ -81,10 +93,7 @@ const Skeleton = ({ userId}) => {
        Emission Score.</div>
   </div>
 </div>
-<Link to="/entry/1" className="SubmitButton Fix" >
-                Start Today
-          </Link>
-        
+
         </div>
         
         </section>

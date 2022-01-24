@@ -18,6 +18,8 @@ const EntryPage1 = (props) => {
     const mapL = [0, 1, 34, 67, 100]
     const mapU = [0, 33, 66, 99, 100];
 
+    console.log(props.userId);
+
     const [isLoaded, setLoaded] = useState(false);
     
     const findTxt = (num) => {

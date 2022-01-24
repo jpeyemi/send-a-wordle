@@ -26,6 +26,17 @@ body {
   margin-bottom: 15px;
 }
 
+.EntryPageNote {
+  font-weight: normal;
+    font-family: 'Inter', sans-serif;
+    color: #475149; 
+    margin-top: -10px;
+    margin-bottom: 30px;
+    white-space:nowrap;
+    font-size: 14px;
+    font-style: italic;
+}
+
   
   .RightArrowContainer {
     position: absolute;

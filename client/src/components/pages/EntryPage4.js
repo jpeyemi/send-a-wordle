@@ -170,6 +170,7 @@ const EntryPage4 = (props) => {
         <div className="entryBody">
             <h6 className="EntryPageHeader">CONSERVE THE AMAZON</h6>
             <h2 className="EntryPageQuestion">How many of these foods did you eat?</h2>
+            <div className="EntryPageNote">(by buying sustainably-harvested products, you can help preserve the forest!)</div>
             
             <Checkbox text="Açaí berries" id="acai" save={serv} servs = {servings} />
             <br />
