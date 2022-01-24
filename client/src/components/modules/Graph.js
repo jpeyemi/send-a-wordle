@@ -38,12 +38,12 @@ const Graph = (props) => {
         console.log(props.data);
         get("../api/whoami").then((am) => {
             if(am !== {}){
-                let xValues = Object.keys(props.data)
+                let xValues = Object.keys(props.data).reverse().slice(-7)
                 let xval = xValues.map((val) => (
                   new Date(val)
                 ));
               
-                let yValues = Object.values(props.data)
+                let yValues = Object.values(props.data).reverse().slice(-7)
                 console.log(xValues)
 
                 let myChart = document.getElementById('myChart')
@@ -113,7 +113,7 @@ const Graph = (props) => {
     
     return(
         <>
-        <canvas id="myChart"></canvas>
+        <canvas id="myChart" height="175"></canvas>
 
         </>
     )

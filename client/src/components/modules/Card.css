@@ -45,8 +45,17 @@
   padding-left: var(--m);
   
 }
- 
+
 .Card-scoreText{
   font-size: 22px;
   color: var(--black);
+}
+
+.CardL-container {
+  border: var(--darkgrey) 1px solid;
+  padding: var(--s);
+  border-radius: var(--s);
+  background-color: var(--white);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 7px;
 }

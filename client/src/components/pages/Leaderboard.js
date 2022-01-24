@@ -53,8 +53,6 @@ const Leaderboard = (props) => {
         for(let i = 0; i < users.length; i++){
             uentries = entries.filter(e => e.creator_id === users[i]._id)
             daily = uentries.filter(e => (Number(e.timestamp.substring(0,4)) == Number(yesterday.getFullYear().toString()) && Number(e.timestamp.substring(5,7))== Number(yesterday.getMonth()))+1 && e.timestamp.substring(8,10) == yesterday.getDate().toString())
-            console.log(uentries[0].timestamp)
-            console.log(daily)
             if(uentries.length !== 0){
                 scores = uentries.map((entryObj) => (
                     Number(entryObj.score)

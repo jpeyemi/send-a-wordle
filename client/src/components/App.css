@@ -9,7 +9,7 @@
   border-top-left-radius: var(--m);
   border-top-right-radius: var(--m);
   margin-top: var(--l);
-  background-color: var(--white); 
+  background-color: var(--primary--dim); 
 }
 
 .App-entryTitle{
@@ -17,12 +17,24 @@
   color: var(--white);
   border-top-left-radius: var(--m);
   border-top-right-radius: var(--m);
+  border-radius: var(--m);
   font-size: 30px;
   padding: var(--s);
   padding-left: var(--l);
+  margin-bottom: 7px;
   
 }
 
 .App-Graph{
   margin-bottom: 30px;
+}
+
+.App-Stats{
+  text-align:justify;
+  text-align-last:center;
+}
+
+.App-Statsspacing{
+  padding-right: 25px;
+  padding-left: 25px;
 }

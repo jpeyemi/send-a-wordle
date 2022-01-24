@@ -5,6 +5,7 @@ import { get, post } from "../../utilities";
 
 import "./NavBar.css";
 import "../../utilities.css";
+//import { indexOf } from "core-js/core/array";
 
 // This identifies your web application to Google's authentication service
 const GOOGLE_CLIENT_ID = "3024251785-1qunded9hga5p3h24s9fq9vg0gb1lcqm.apps.googleusercontent.com";
@@ -14,10 +15,11 @@ const GOOGLE_CLIENT_ID = "3024251785-1qunded9hga5p3h24s9fq9vg0gb1lcqm.apps.googl
  */
 
 const NavBar = (props) => {
-  const [name, setName] = useState(undefined)
+  const [name,setName] = useState(undefined)
   useEffect(() => {
     get("/api/whoami").then((user) => {
-      setName(user.name)
+
+      setName(user.name.substring(0,user.name.indexOf(' '))) 
     });
   })
   
@@ -43,7 +45,7 @@ const NavBar = (props) => {
         {props.userId ? (
           <>
           <span className = "name"> 
-            Hello {name},
+            Hello, {name}
           </span>
           <Link to="/entry/1" className="NavBar-link NavBar-login">
             Log Now!

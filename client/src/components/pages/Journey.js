@@ -15,16 +15,23 @@ const Journey = (props) => { //pass user info to Journey
     const [entries, setEntries] = useState([]);
     const [scores, setScores] = useState([]);
     const [wscores, setWScores] = useState([]);
-    const [data, setData] =useState({});
-
+    const [mscores, setMScores] = useState([]);
+    const [data, setData] = useState({});
+    document.body.style = 'backround var(--primary--dim)'
     const makeScores = (entryObjs) => {
         let scores = entryObjs.map((entryObj) => (
             Number(entryObj.score)
         ));
         let wentryObjs = entryObjs.slice(-7)
+        console.log(wentryObjs)
         let wscores = wentryObjs.map((wentryObj) => (
             Number(wentryObj.score)
         ));
+        let mentryObjs = entryObjs.slice(-30)
+        let mscores = mentryObjs.map((mentryObj) => (
+            Number(mentryObj.score)
+        ));
+        setMScores(mscores)
         setWScores(wscores)
         setScores(scores) 
     }
@@ -52,7 +59,7 @@ const Journey = (props) => { //pass user info to Journey
     useEffect(() => {
         get("/api/entries", {user: props.userId}).then((entries) => {
             setEntries(entries.reverse());
-            makeScores(entries);
+            makeScores(entries.reverse());
             makeData(entries.reverse());
         });//may change depending on format of passed user info
     }, []);
@@ -87,13 +94,18 @@ const Journey = (props) => { //pass user info to Journey
             <div className ="App-Graph">
                 {graph}
             </div>
-            <span>
-            {<Stats scores={scores} wscores={wscores}/>}
-            </span>
-            {/*<span className="u-inlineBlock">
-            {<Stats scores={scores} />}
-            </span>
-    <span className="u-inlineBlock">{graph}</span>*/}
+            <div className = "App-Stats">
+                <span className="u-inlineBlock App-Statsspacing">
+                {<Stats scores={wscores} kind="Last 7 Entries"/>}
+                </span>
+                <span className="u-inlineBlock App-Statsspacing">
+                {<Stats scores={mscores} kind="Last 30 Entries"/>}
+                </span>
+                <span className ="u-inlineBlock App-Statsspacing">
+                {<Stats scores={scores} kind="All Time"/>}
+                </span>
+            </div>
+    {/*<span className="u-inlineBlock">{graph}</span>*/}
             <div>
             {/*<Link to="/entry/1">
                 Entry
@@ -102,7 +114,7 @@ const Journey = (props) => { //pass user info to Journey
             {/*props.userId && <NewEntry addNewEntry={addNewEntry} userId = {props.userId}/>*/}
             <div className ="App-entryContainer">
                 <div className = "App-entryTitle">
-                    Entries
+                    Past Entries
                 </div>
                 {entriesList}
             </div>

@@ -1,6 +1,6 @@
 .Stats-container{
     border: var(--darkgrey) 1px solid;
-    padding: var(--m);
+    padding: 20px;
     background-color: var(--white);
     text-align: center;
     border-radius: var(--l);
@@ -10,6 +10,12 @@
 .Stats-labels{
     font-size: 30px;
     color: var(--black);
+}
+
+.Stats-title{
+    font-size: 30px;
+    color: var(--black);
+    font-weight: bold;
 }
 
 .Stats-data{
