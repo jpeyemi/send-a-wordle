@@ -19,20 +19,20 @@ const EntryPage4 = (props) => {
     const localMap = {"meat":4.6, "beef":20, "lamb":12, "pork":4.6, "poultry":2.4, "dairy":3.1, 
                     "non":0.7, "rice":1.2, "soy":1, "oat":0.9, "almond":0.7};
 
-    const defaultVal = {"meat":2, "beef":1, "lamb":1, "pork":1, "poultry":1, "dairy":2, 
-                    "non":0.25, "rice":1, "soy":1, "oat":1, "almond":1, "local":0.25};
+    /*const defaultVal = {"meat":2, "beef":1, "lamb":1, "pork":1, "poultry":1, "dairy":2, 
+                    "non":0.25, "rice":1, "soy":1, "oat":1, "almond":1, "local":0.25};*/
 
     const ozTog = 28.3495;
     const gPerServ = 3 * ozTog;
-    const convFactor = gPerServ / 100;
+    const convFactor = (gPerServ) * (1/100) * (1/33) * (1/100);
 
     const handleClick = () => {
-        for (const [key, value] of Object.entries(servings)) {
+        /*for (const [key, value] of Object.entries(servings)) {
             sessionStorage.setItem(key, value);
-        }
-        /*for (let i = 0; i < sessionStorage.length; i++) {
-            console.log(JSON.stringify(sessionStorage.key(i)) + ", " + sessionStorage.getItem(sessionStorage.key(i)));
         }*/
+        for (let i = 0; i < sessionStorage.length; i++) {
+            console.log(JSON.stringify(sessionStorage.key(i)) + ", " + sessionStorage.getItem(sessionStorage.key(i)));
+        }
     }
 
     const handleRightArrowHover = () => {
@@ -60,13 +60,33 @@ const EntryPage4 = (props) => {
     const handleSubmit = () => {
         // calculate score
         let carbonScore = 0;
-        let localPercent = defaultVal["local"];
+        let localPercent = sessionStorage.getItem("local");
+        let normPercent = 100 - localPercent;
 
-        // first look at locally produced
-        if (sessionStorage.getItem("local")) { let localPercent = sessionStorage.getItem("local"); }
-        let normPercent = 1 - localPercent;
+        if (sessionStorage.getItem("meatTouched") === "false") {
+            carbonScore += normPercent * map["meat"] * sessionStorage.getItem("meat") + localPercent * localMap["meat"] * sessionStorage.getItem("meat");
+        } else {
+            let meatList = ["beef", "lamb", "pork", "poultry"];
+            for (const meat of meatList) {
+                carbonScore += normPercent * map[meat] * sessionStorage.getItem(meat) + localPercent * localMap[meat] * sessionStorage.getItem(meat);
+            }
+        }
+        console.log("after meat calc: " + carbonScore);
 
-        // next, look at meat
+        carbonScore += normPercent * map["dairy"] * sessionStorage.getItem("dairy") + localPercent * localMap["dairy"] * sessionStorage.getItem("dairy");
+        console.log("after dairy calc: " + carbonScore);
+
+        if (sessionStorage.getItem("veganTouched") === "false") {
+            carbonScore += normPercent * map["non"] * sessionStorage.getItem("non") + localPercent * localMap["non"] * sessionStorage.getItem("non");
+        } else {
+            let altList = ["rice", "soy", "oat", "almond"];
+            for (const alt of altList) {
+                carbonScore += normPercent * map[alt] * sessionStorage.getItem(alt) + localPercent * localMap[alt] * sessionStorage.getItem(alt);
+            }
+        }
+        console.log("after vegan calc: " + carbonScore);
+
+        /*// next, look at meat
         if (!sessionStorage.getItem("beef") && !sessionStorage.getItem("lamb") &&
                 !sessionStorage.getItem("pork") && !sessionStorage.getItem("poultry")) {
             
@@ -111,18 +131,20 @@ const EntryPage4 = (props) => {
                     carbonScore += normPercent * map[alt] * defaultVal[alt] + localPercent * localMap[alt] * defaultVal[alt];
                 }
             }
-        }
+        }*/
 
         // conversion
         carbonScore *= convFactor;
+        console.log("after converting: " + carbonScore);
 
         // look at acai, etc.
         let consList = ["acai", "cocoa", "nuts", "gua"];
         for (const item of consList) {
-            if (sessionStorage.getItem(item)) {
-                carbonScore -= 2.5;
+            if (sessionStorage.getItem(item) === "true") {
+                carbonScore -= 5;
             }
         }
+        console.log("after acai calc: " + carbonScore);
 
         // capping
         // cap:143.22167399999998
@@ -130,14 +152,17 @@ const EntryPage4 = (props) => {
         if (carbonScore > cap) {
             carbonScore = cap;
         }
+        console.log("after capping: " + carbonScore);
 
         // calculating out of 100
         let carbonActual = (Number(carbonScore) / cap) * 100;
         let val = Math.round(carbonActual);
+        console.log("after everything: " + val);
 
         // finished! time to post.
-        const body = {score: val, creator_id: props.userId};
-        post("/api/entry", body);
+        console.log(val);
+        //const body = {score: val, creator_id: props.userId};
+        //post("/api/entry", body);
     }
 
     return (

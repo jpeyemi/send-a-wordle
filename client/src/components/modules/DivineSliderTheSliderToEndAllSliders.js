@@ -51,6 +51,22 @@ const DivineSliderTheSliderToEndAllSliders = (props) => {
     }*/
 
     const inputFunc = () => {
+        let meatPossible = ["beef", "lamb", "pork", "poultry"];
+        for (const i of meatPossible) {
+            if (props.id === i) {
+                console.log("match");
+                sessionStorage.setItem("meatTouched", true);
+            }
+        }
+
+        let veganPossible = ["rice", "soy", "oat", "almond"];
+        for (const i of veganPossible) {
+            if (props.id === i) {
+                console.log("match");
+                sessionStorage.setItem("veganTouched", true);
+            }
+        }
+
         let value = document.getElementById(inp).value;
         setKey(props.find(value));
         setValue(value);
