@@ -161,8 +161,10 @@ const EntryPage4 = (props) => {
 
         // finished! time to post.
         console.log(val);
-        //const body = {score: val, creator_id: props.userId};
-        //post("/api/entry", body);
+        const body = {score: val, creator_id: props.userId};
+        post("/api/entry", body).then(()=> {
+            location.reload();
+        });
     }
 
     return (

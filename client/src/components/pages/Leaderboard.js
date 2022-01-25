@@ -52,7 +52,8 @@ const Leaderboard = (props) => {
         yesterday.setDate(yesterday.getDate() - 1)
         for(let i = 0; i < users.length; i++){
             uentries = entries.filter(e => e.creator_id === users[i]._id)
-            daily = uentries.filter(e => (Number(e.timestamp.substring(0,4)) == Number(yesterday.getFullYear().toString()) && Number(e.timestamp.substring(5,7))== Number(yesterday.getMonth()))+1 && e.timestamp.substring(8,10) == yesterday.getDate().toString())
+            //daily = uentries.filter(e => (Number(e.timestamp.substring(0,4)) == Number(yesterday.getFullYear().toString()) && Number(e.timestamp.substring(5,7))== Number(yesterday.getMonth()))+1 && e.timestamp.substring(8,10) == yesterday.getDate().toString())
+            daily = uentries.slice(-1)
             if(uentries.length !== 0){
                 scores = uentries.map((entryObj) => (
                     Number(entryObj.score)
@@ -74,8 +75,8 @@ const Leaderboard = (props) => {
             }
             avg/=scores.length
             myDict[users[i]._id] = Math.round(avg)
-            ustoid[users[i]._id] = users[i].name
-            dDict[users[i]._id] = dscores
+            ustoid[users[i]._id] = users[i].name                          
+            dDict[users[i]._id] = Math.round(dscores)
             console.log(myDict)
         }
         if(Object.keys(myDict).length === users.length){

@@ -7,6 +7,7 @@ import { Link } from "@reach/router";
 import "../App.css"
 //import Chart from "../modules/Chart.js";
 import Graph from "../modules/Graph.js";
+import { Button } from "react-bootstrap";
 //import other components tbd
 
 
@@ -17,6 +18,9 @@ const Journey = (props) => { //pass user info to Journey
     const [wscores, setWScores] = useState([]);
     const [mscores, setMScores] = useState([]);
     const [data, setData] = useState({});
+    const [limit, setLimit] = useState(7);
+    const [ent, setEnt] = useState([]);
+    const [saul, setSaul] = useState({});
     document.body.style = 'backround var(--primary--dim)'
     const makeScores = (entryObjs) => {
         let scores = entryObjs.map((entryObj) => (
@@ -58,9 +62,17 @@ const Journey = (props) => { //pass user info to Journey
 
     useEffect(() => {
         get("/api/entries", {user: props.userId}).then((entries) => {
-            setEntries(entries.reverse());
-            makeScores(entries.reverse());
-            makeData(entries.reverse());
+            let time = ' '
+            for(let i = 0; i<entries.length;i++){
+                time = String(entries[i].timestamp).substring(0,10)
+                saul[time] = i
+            }
+            for(let i = 0; i < Object.keys(saul).length; i++){
+                ent.push(entries[saul[Object.keys(saul)[i]]])
+            }
+            setEntries(ent.reverse());
+            makeScores(ent.reverse());
+            makeData(ent.reverse());
         });//may change depending on format of passed user info
     }, []);
 
@@ -82,10 +94,27 @@ const Journey = (props) => { //pass user info to Journey
             _id = {entryObj._id}
         />
     ));
-        graph = (<Graph data={data}/>)
+        graph = (<Graph data={data} limit={limit}/>)
     } else {
         entriesList = <div>No Entries Yet!</div>;
     }
+    const niamh = () => {
+        console.log("niamh")
+    }
+    const all = () => {
+        setLimit(Infinity)
+        console.log("all")
+    }
+    const seven = () => {
+        setLimit(7)
+    }
+    const thirty = () => {
+        setLimit(30)
+    }
+    useEffect(() => {
+        graph = (<Graph data={data} limit={limit}/>)
+        console.log("sama bad")
+    }, [limit])
 
     
     
@@ -93,6 +122,8 @@ const Journey = (props) => { //pass user info to Journey
         <>
             <div className ="App-Graph">
                 {graph}
+                {/*<Graph data={data} limit={limit}/>*/}
+                
             </div>
             <div className = "App-Stats">
                 <span className="u-inlineBlock App-Statsspacing">
@@ -103,6 +134,9 @@ const Journey = (props) => { //pass user info to Journey
                 </span>
                 <span className ="u-inlineBlock App-Statsspacing">
                 {<Stats scores={scores} kind="All Time"/>}
+                {/*<Button onClick = {all} >
+                {<Stats scores={scores} kind="All Time"/>}
+                </Button>*/}
                 </span>
             </div>
     {/*<span className="u-inlineBlock">{graph}</span>*/}

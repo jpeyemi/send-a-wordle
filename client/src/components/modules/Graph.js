@@ -38,12 +38,12 @@ const Graph = (props) => {
         console.log(props.data);
         get("../api/whoami").then((am) => {
             if(am !== {}){
-                let xValues = Object.keys(props.data).reverse().slice(-7)
+                let xValues = Object.keys(props.data).reverse().slice(-props.limit)
                 let xval = xValues.map((val) => (
                   new Date(val)
                 ));
               
-                let yValues = Object.values(props.data).reverse().slice(-7)
+                let yValues = Object.values(props.data).reverse().slice(-props.limit)
                 console.log(xValues)
 
                 let myChart = document.getElementById('myChart')
@@ -103,13 +103,16 @@ const Graph = (props) => {
                 setExist(true);
             }});
     } ,[]);
-    if(exist){
+    useEffect(() => {
+      /*if(exist){
         graph.data.labels.pop();
         graph.data.labels.push(Object.keys(props.data))
         graph.data.datasets.pop();
         graph.data.datasets.push(Object.values(props.data))
-        //graph.update();
-    }
+        graph.update();
+    }*/
+    }, [props.limit])
+    
     
     return(
         <>
