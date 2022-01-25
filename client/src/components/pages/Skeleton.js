@@ -33,10 +33,6 @@ const Skeleton = (props) => {
     }
   };
 
-  const login = () => {
-    
-  };
-
   return (
     <>
     <section id="intro">
