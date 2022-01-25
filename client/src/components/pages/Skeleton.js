@@ -94,6 +94,10 @@ const Skeleton = (props) => {
   </div>
 </div>
 
+<Link to="/entry/1" className="SubmitButton" id="Fix" >
+                Start Today
+          </Link>
+        
         </div>
         
         </section>
