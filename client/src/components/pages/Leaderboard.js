@@ -132,7 +132,7 @@ const Leaderboard = (props) => {
                 </div>
                 <div className = "Board u-inlineBlock">
                     <div className = "BoardTitle"> 
-                        Yesterday's Scores
+                        Most Recent Scores
                     </div>
                     {davgList}
                 </div>

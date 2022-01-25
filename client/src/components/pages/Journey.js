@@ -63,12 +63,15 @@ const Journey = (props) => { //pass user info to Journey
     useEffect(() => {
         get("/api/entries", {user: props.userId}).then((entries) => {
             let time = ' '
-            for(let i = 0; i<entries.length;i++){
-                time = String(entries[i].timestamp).substring(0,10)
+            console.log(entries)
+            let entriez = entries//entries.sort((a,b) => a.timestamp - b.timestamp)
+            console.log(entriez)
+            for(let i = 0; i<entriez.length;i++){
+                time = String(entriez[i].timestamp).substring(0,10)
                 saul[time] = i
             }
             for(let i = 0; i < Object.keys(saul).length; i++){
-                ent.push(entries[saul[Object.keys(saul)[i]]])
+                ent.push(entriez[saul[Object.keys(saul)[i]]])
             }
             setEntries(ent.reverse());
             makeScores(ent.reverse());
@@ -77,11 +80,11 @@ const Journey = (props) => { //pass user info to Journey
     }, []);
 
 
-    const addNewEntry = (entryObj) => {
+    /*const addNewEntry = (entryObj) => {
         setEntries([entryObj].concat(entries.reverse()));
         makeScores([entryObj].concat(entries));
         makeData(entries.concat([entryObj]));
-    };
+    };*/
 
     let entriesList = null;
     let graph = null;
