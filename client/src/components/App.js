@@ -5,6 +5,7 @@ import Skeleton from "./pages/Skeleton.js";
 import NavBar from "./modules/NavBar.js";
 import Journey from "./pages/Journey.js";
 import Leaderboard from "./pages/Leaderboard.js";
+import Temp from "./pages/TempLeaderboard.js";
 
 import "../utilities.css";
 
@@ -69,6 +70,7 @@ const App = () => {
           <EntryPage2 path="/entry/2" userId={userId} />
           <EntryPage3 path="/entry/3" userId={userId} />
           <EntryPage4 path="/entry/4" userId={userId} />
+          <Temp path="/temp" userId={userId} />
           
           <NotFound default />
         </Router>
