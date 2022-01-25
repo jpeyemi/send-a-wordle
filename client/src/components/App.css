@@ -38,3 +38,13 @@
   padding-right: 25px;
   padding-left: 25px;
 }
+
+.info-container{
+  border: var(--darkgrey) 1px solid;
+  padding: 10px;
+  background-color: var(--white);
+  text-align: center;
+  border-radius: var(--l);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}

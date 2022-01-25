@@ -13,11 +13,14 @@ const Leaderboard = (props) => {
     const [avgLoaded, setAvgLoaded] = useState(false)
     const [daniel, setDaniel] = useState({});
     const [ellie, setEllie] = useState({});
+    const [elise, setElise] = useState({})
     //let dict = {}
     let sortUseravg = null
     let avgList = null;
     let dsortUseravg = null
     let davgList = null;
+    let hsortUseravg = null
+    let havgList = null;
     //let ustoid = {}
     useEffect(() => {
         get("/api/users").then((userz) => {
@@ -49,11 +52,21 @@ const Leaderboard = (props) => {
         let dDict = {}
         let yesterday = new Date()
         let dscores = null;
+        let at = null;
+        let hDict = {};
+        let sco = null;
         yesterday.setDate(yesterday.getDate() - 1)
         for(let i = 0; i < users.length; i++){
             uentries = entries.filter(e => e.creator_id === users[i]._id)
             //daily = uentries.filter(e => (Number(e.timestamp.substring(0,4)) == Number(yesterday.getFullYear().toString()) && Number(e.timestamp.substring(5,7))== Number(yesterday.getMonth()))+1 && e.timestamp.substring(8,10) == yesterday.getDate().toString())
             daily = uentries.slice(-1)
+            /*sco = uentries.map((e)=>(e.score))
+            if(sco.length !== 0){
+                at = Math.min(sco)
+            }else{
+                at = Number.POSITIVE_INFINITY
+            }*/
+            //console.log(at)
             if(uentries.length !== 0){
                 scores = uentries.map((entryObj) => (
                     Number(entryObj.score)
@@ -68,7 +81,9 @@ const Leaderboard = (props) => {
             }else{
                 dscores = [Number.POSITIVE_INFINITY]
             }
+            at = Math.min(...scores)
             console.log(scores)
+            console.log(at)
             avg = 0
             for (let j = 0; j < scores.length ;j++){
                 avg += scores[j]
@@ -77,12 +92,14 @@ const Leaderboard = (props) => {
             myDict[users[i]._id] = Math.round(avg)
             ustoid[users[i]._id] = users[i].name                          
             dDict[users[i]._id] = Math.round(dscores)
+            hDict[users[i]._id] = Math.round(at)
             console.log(myDict)
         }
         if(Object.keys(myDict).length === users.length){
             setDaniel(ustoid);
             setEllie(dDict);
             setDict(myDict);
+            setElise(hDict);
         }
     }
 
@@ -115,6 +132,20 @@ const Leaderboard = (props) => {
     } else {
         davgList = <div>No Users</div>;
     }
+    hsortUseravg = Object.keys(elise).sort((a,b) => elise[a] - elise[b])
+    if (hasUsers && hsortUseravg) {
+        havgList = hsortUseravg.map((user) => (
+        <CardL
+            avg = {elise[user]}
+            userId = {user}
+            map = {daniel}
+            place = {hsortUseravg.indexOf(user)}
+        />
+    ));
+    } else {
+        havgList = <div>No Users</div>;
+    }
+
 
 
     return(
@@ -135,6 +166,12 @@ const Leaderboard = (props) => {
                         Most Recent Scores
                     </div>
                     {davgList}
+                </div>
+                <div className = "Board u-inlineBlock">
+                    <div className = "BoardTitle"> 
+                        All Time
+                    </div>
+                    {havgList}
                 </div>
             </div>
         </div>

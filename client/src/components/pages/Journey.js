@@ -7,8 +7,17 @@ import { Link } from "@reach/router";
 import "../App.css"
 //import Chart from "../modules/Chart.js";
 import Graph from "../modules/Graph.js";
+import "../modules/Stats.css"
 import { Button } from "react-bootstrap";
 //import other components tbd
+import { Chart } from "chart.js";
+import * as Chartjs from "chart.js";
+import 'chartjs-adapter-moment';
+const controllers = Object.values(Chartjs).filter(
+    (chart) => chart.id !== undefined
+  );
+  
+  Chart.register(...controllers);
 
 
 
@@ -21,6 +30,8 @@ const Journey = (props) => { //pass user info to Journey
     const [limit, setLimit] = useState(7);
     const [ent, setEnt] = useState([]);
     const [saul, setSaul] = useState({});
+    const [x, setX] = useState([]);
+    const [y,setY] = useState([]);
     document.body.style = 'backround var(--primary--dim)'
     const makeScores = (entryObjs) => {
         let scores = entryObjs.map((entryObj) => (
@@ -76,6 +87,12 @@ const Journey = (props) => { //pass user info to Journey
             setEntries(ent.reverse());
             makeScores(ent.reverse());
             makeData(ent.reverse());
+            setX(ent.map((e)=> (
+                e.timestamp
+            )))
+            setY(ent.map((e)=> (
+                e.score
+            )))
         });//may change depending on format of passed user info
     }, []);
 
@@ -115,18 +132,122 @@ const Journey = (props) => { //pass user info to Journey
         setLimit(30)
     }
     useEffect(() => {
-        graph = (<Graph data={data} limit={limit}/>)
+        //graph = (<Graph data={data} limit={limit}/>)
         console.log("sama bad")
     }, [limit])
 
+
+    /*let myChart = document.getElementById('myChart')
+    const[graph,setGraph] = useState();
+    const[exist,setExist] = useState(false);
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>;
+
+    useEffect(()=> {
+        console.log(get("../api/whoami"));
+        console.log(data);
+        console.log(limit)
+        console.log(Object.keys(data))
+        let xValues = null;
+        let yValues = null;
+        let xValues = entries.map((ent) => (
+            ent.timestamp.substring(0,10)
+        ));
+        let yValues = entries.map((ent) => (
+            ent.score
+        ));
+        console.log(xValues)
+        get("../api/whoami").then((am) => {
+            if(am !== {} && !exist){
+                xValues = Object.keys(data).reverse().slice(-limit)
+                let xval = xValues.map((val) => (
+                  new Date(val)
+                ));
+              
+                yValues = Object.values(data).reverse().slice(-limit)
+                console.log(xValues)
+
+                let myChart = document.getElementById('myChart')
+                console.log(x)
+                setGraph(new Chart(myChart, {
+                    type: "line",
+                    data: {
+                        labels: x,
+                        datasets: [{
+                            label: "Emmision Score",
+                            backgroundColor: "rgba(0,90,0,1.0)",
+                            borderColor: "rgba(0,90,0,.2)",
+                            data: y,
+                        }]
+                    },
+                    options:{
+                        legend: {display: true},
+                        title: {
+                          font: {
+                            size: 20,
+                            
+                          },
+                        },
+                        tooltips: {
+                          titleFontSize: 14,
+                          //not working
+                        },
+                        plugins: {
+                            title: {
+                              display: true,
+                              text: 'Your Progress',
+                              font: {
+                                size: 30,
+                                family: "Inter",
+                              },
+                            }
+                          },
+                          scales: {
+                            //adapters.date, 
+                            x: {
+                                type: 'time',
+                                time: {
+                                  unit: 'day'
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Date'
+                                  }
+                                },
+                            y: {
+                              min: 0,
+                              max: 100,
+                            }
+                          }
+                    }
+                }) )
+                setExist(true);
+            }});
+    } ,[exist]);
+    useEffect(() => {
+      if(exist){
+        graph.data.labels.pop();
+        graph.data.labels.push(x)
+        graph.data.datasets.pop();
+        graph.data.datasets.push(y)
+        //graph.update();
+        graph.destroy()
+    }
+    }, [x,y])*/
     
     
     return(
         <>
             <div className ="App-Graph">
+                {/*<canvas id="myChart" height="175"></canvas>*/}
+
                 {graph}
                 {/*<Graph data={data} limit={limit}/>*/}
                 
+            </div>
+            <div className="App-Stats info-container">
+                Your Emission Score quantifies the negative contibutions of the food you eat to preservation of the Amazon. 
+                Make it your goal to minimize your score and help protect the forest.
             </div>
             <div className = "App-Stats">
                 <span className="u-inlineBlock App-Statsspacing">
