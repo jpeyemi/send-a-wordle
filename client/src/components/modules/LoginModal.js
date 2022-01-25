@@ -24,7 +24,7 @@ const LoginModal = (props) => {
            
             <Modal className = "modalDef" centered="true" show={visible} onHide={handleClose}>
                 <Modal.Body> 
-                    <h3 className="modalTitle">Please sign in to continue.</h3>
+                <h3 className="modalHeading">Please sign in to continue.</h3>
                     <GoogleLogin
             clientId={GOOGLE_CLIENT_ID}
             buttonText="Login"

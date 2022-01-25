@@ -7,9 +7,10 @@
 
 #features {
     background-color: var(--white);
-    height: 120vh;
+    height: 110vh;
     display: flex;
     justify-content: center;
+    margin-top: -20%;
 }
 
 .featuresTitle {
@@ -25,15 +26,15 @@
 
 #forest {
     background-image: url("../../public/blur_edges.png");
-    -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+    min-width: 100vw;
+    background-repeat: no-repeat;
     min-height: 120vh;
     display: flex;
-    min-width: 101vw;
-    margin-left: -30%;
-    margin-top: -10%;
+    min-width: 100vw;
+    background-size: cover;
+    position: relative;
+    left:50%;
+    transform: translate(-50%,-20%);    
 }
 
 .leftContainer {
