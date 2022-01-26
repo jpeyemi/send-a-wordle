@@ -3,6 +3,7 @@ import { Router } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
 import NavBar from "./modules/NavBar.js";
+import DownBar from "./modules/DownBar.js";
 import Journey from "./pages/Journey.js";
 import Leaderboard from "./pages/Leaderboard.js";
 import Temp from "./pages/TempLeaderboard.js";
@@ -78,6 +79,7 @@ const App = () => {
           <NotFound default />
         </Router>
       </div>
+      <DownBar />
     </>
   );
 };

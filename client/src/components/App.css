@@ -2,6 +2,7 @@
   max-width: 960px;
   padding: var(--m) var(--m);
   margin: auto;
+  min-height: 90vh;
 }
 
 .App-entryContainer{
