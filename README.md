@@ -17,4 +17,12 @@ Frameworks: Node.js, MongoDB
 - https://codepen.io/seansean11/pen/dhwzj
 - https://jsfiddle.net/willwood/gjf139z4/5/
 
+Sources Used:
+
+- https://www.nytimes.com/interactive/2019/04/30/dining/climate-change-food-eating-habits.html
+
+- https://www.science.org/doi/10.1126/science.aaq0216#F1
+
+
+
 
