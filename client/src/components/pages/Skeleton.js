@@ -36,18 +36,18 @@ const Skeleton = (props) => {
   return (
     <>
     <section id="intro">
-      <div class='footer' id="skel">
-          <div class='footer-item footer-one'>
+      <div class='header' id="skel">
+          <div class='header-item header-one'>
             <h1 className = "titleText">What we eat matters.</h1>
             <p className = "bodyText">The Amazonian Rainforest is reaching an irreversible tipping point, 
         and our everyday food choices directly impact its future. 
         Take your first step towards stabilizing the Amazonian forest 
         frontier today.</p>
-        {isLogged && <Link to="/entry/1" className="SubmitButton">Start your Journey</Link> }
-        {!isLogged && <LoginModal handleLogin={props.handleLogin} /> }
+        {isLogged && <Link to="/entry/1" className="StartButton">Start your Journey</Link> }
+        {!isLogged && <LoginModal text="Start your Journey" handleLogin={props.handleLogin} /> }
           </div>
           
-          <div class='footer-item footer-two'>
+          <div class='header-item header-two'>
             {!canSee && <div className="acai" onClick={() => { increment(); console.log("here");}}> </div>}
             {canSee && <div className="cursed"> </div>}
           </div>
@@ -90,13 +90,12 @@ const Skeleton = (props) => {
   </div>
 </div>
 
-<Link to="/entry/1" className="SubmitButton" id="Fix" >
-                Start Today
-          </Link>
         
         </div>
         
         </section>
+
+        
    </>
   );
 };

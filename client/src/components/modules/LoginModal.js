@@ -18,19 +18,20 @@ const LoginModal = (props) => {
     return (
         <>
          <div className = "modalDef width" id="loginM" >
-            <span className="SubmitButton" onClick={handleOpen}>
-                Start your Journey
+            <span className="StartButton" onClick={handleOpen}>
+                {props.text}
             </span>
            
             <Modal className = "modalDef" centered="true" show={visible} onHide={handleClose}>
                 <Modal.Body> 
-                <h3 className="modalHeading">Please sign in to continue.</h3>
+                <div className="loginModal-Header">Please sign in to continue.</div>
+                <div className="loginModal-Underline"></div>
                     <GoogleLogin
             clientId={GOOGLE_CLIENT_ID}
             buttonText="Login"
             onSuccess={props.handleLogin}
             onFailure={(err) => console.log(err)}
-            className="NavBar-link NavBar-login"
+            className="NavBar-link NavBar-login inLoginModal"
           />
                 
                 </Modal.Body>
