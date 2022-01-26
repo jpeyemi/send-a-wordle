@@ -158,6 +158,11 @@ const EntryPage4 = (props) => {
         if (carbonScore > cap) {
             carbonScore = cap;
         }
+
+        if (carbonScore < 0) {
+            carbonScore = 0;
+        }
+
         console.log("after capping: " + carbonScore);
 
         // calculating out of 100
@@ -167,10 +172,10 @@ const EntryPage4 = (props) => {
 
         // finished! time to post.
         console.log(val);
-        const body = {score: val, creator_id: props.userId, timestamp: entryDate};
+        /*const body = {score: val, creator_id: props.userId, timestamp: entryDate};
         post("/api/entry", body).then(()=> {
             location.reload();
-        });
+        });*/
     }
 
     return (
