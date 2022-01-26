@@ -16,9 +16,12 @@ const EntryPage0 = (props) => {
     const datesel = (date) =>{
         //console.log("at datesel");
         setD(date)
-        sessionStorage.setItem("date", entryDate.toString());
         //console.log(date);
     }
+
+    useEffect(() => {
+        sessionStorage.setItem("date", entryDate.toString());
+    }, [entryDate])
 
     const handleRightArrowHover = () => {
         document.querySelector('.RightArrow').animate([

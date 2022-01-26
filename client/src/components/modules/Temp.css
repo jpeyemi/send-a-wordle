@@ -115,3 +115,15 @@
     margin-bottom: 10px;
     font-size: 0px;
 }
+
+.TempCard-container {
+    width: 350px;
+    height: 40px;
+    background: var(--primary--dim);
+    border-radius: 5px;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Inter', sans-serif;
+    color: #475149; 
+    margin-bottom: 10px;
+    font-size: 0px;
+  }
