@@ -8,6 +8,18 @@
     margin-top: 40px;
     margin-bottom: -40px;
     color: #475149; 
+    font-size: 30px;
+}
+
+.Leaderboard-Underline {
+    width: 70px;
+    height: 3px;
+    background-color: var(--primary);
+    justify-content: center;
+    text-align: center;
+    margin-left: 50%;
+    left: -35px;
+    position: relative;
 }
 
 .footer {
@@ -26,14 +38,11 @@
     flex: 1;
     margin-left: 10px;
     margin-right: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    
     width: 200px;
   }
 
   .Leaderboard-SubHeader {
-    display: flex;
     width: 350px;
     height: 30px;
     background: var(--primary--dark);
@@ -41,7 +50,7 @@
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
     font-family: 'Inter', sans-serif;
     color: var(--white); 
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     white-space:nowrap;
     text-align: center;
     display: block;
@@ -51,21 +60,26 @@
 .TempLeft {
     font-size: 16px;
     line-height: 40px;
-    display: inline block;
-    min-width: 350px;
+    width: 30px;
+    margin: 0px;
+
+    position: relative;
+    left: 15px;
     
     font-family: 'Inter', sans-serif;
-    color: #475149;
-    display: block;
+    color: var(--primary);
+    font-weight: 600;
+    
 }
 
 .TempCenter {
     font-size: 16px;
     line-height: 40px;
-    text-align: center;
-    display: block;
-    width: 100px;
-    
+    width: 350px;
+    display: inline-block;
+
+    position: relative;
+    transform: translateY(-100%);
     font-family: 'Inter', sans-serif;
     color: #475149;
 
@@ -76,13 +90,18 @@
 .TempRight {
     font-size: 16px;
     line-height: 40px;
-    display: inline block;
     width: 350px;
-    
+    display: inline-block;
+    right: 15px;
+
+    position: relative;
+    transform: translateY(-200%);
     font-family: 'Inter', sans-serif;
-    color: #475149;
+    color: var(--primary);
+    font-weight: 600;
 
     text-align: right;
+    justify-self: right;
 }
 
 .TempCard-container1 {
@@ -90,9 +109,9 @@
     height: 40px;
     background: #fff;
     border-radius: 5px;
-    display: inline-block;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
     font-family: 'Inter', sans-serif;
     color: #475149; 
     margin-bottom: 10px;
+    font-size: 0px;
 }

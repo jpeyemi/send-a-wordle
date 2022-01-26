@@ -25,7 +25,7 @@ const NavBar = (props) => {
   
   return (
     <nav className="NavBar-container parent">
-      <div className="NavBar-title u-inlineBlock">rescue.rainforest</div>
+      <div className = "navContainer"> <div className="photo"></div> </div>
       <div className="NavBar-linkContainer u-inlineBlock">
         <Link to="/" className="NavBar-link">
           Home
