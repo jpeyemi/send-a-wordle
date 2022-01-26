@@ -40,9 +40,6 @@ const NavBar = (props) => {
         <Link to="/leaderboard/" className="NavBar-link">
           Leaderboard
         </Link>
-        <Link to="/learnmore/" className ="NavBar-link">
-          Learn More
-        </Link>
         
       </div>
       <div className = "NavBar-linkContainerR u-inlineBlock child"> 

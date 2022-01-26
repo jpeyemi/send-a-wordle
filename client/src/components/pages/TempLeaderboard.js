@@ -24,22 +24,16 @@ const Temp = (props) => {
     const [daniel, setDaniel] = useState({});
     const [ellie, setEllie] = useState({});
     const [elise, setElise] = useState({})
-    //let dict = {}
     let sortUseravg = null
     let avgList = null;
     let dsortUseravg = null
     let davgList = null;
     let hsortUseravg = null
     let havgList = null;
-    //let ustoid = {}
     useEffect(() => {
         get("/api/users").then((userz) => {
             setUsers(userz)
-        })/*.then(() => {
-        console.log(users)
-        get("/api/allEntries").then((entriez) => {
-            setEntries(entriez);
-        }).then(loadDict)}); */
+        })
     },[]);
 
     useEffect(() => {
@@ -64,19 +58,11 @@ const Temp = (props) => {
         let dscores = null;
         let at = null;
         let hDict = {};
-        let sco = null;
         yesterday.setDate(yesterday.getDate() - 1)
         for(let i = 0; i < users.length; i++){
             uentries = entries.filter(e => e.creator_id === users[i]._id)
             //daily = uentries.filter(e => (Number(e.timestamp.substring(0,4)) == Number(yesterday.getFullYear().toString()) && Number(e.timestamp.substring(5,7))== Number(yesterday.getMonth()))+1 && e.timestamp.substring(8,10) == yesterday.getDate().toString())
             daily = uentries.slice(-1)
-            /*sco = uentries.map((e)=>(e.score))
-            if(sco.length !== 0){
-                at = Math.min(sco)
-            }else{
-                at = Number.POSITIVE_INFINITY
-            }*/
-            //console.log(at)
             if(uentries.length !== 0){
                 scores = uentries.map((entryObj) => (
                     Number(entryObj.score)
