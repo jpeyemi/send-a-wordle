@@ -130,11 +130,11 @@ const Journey = (props) => {
 
     return(
         <>
-            <div className="Journey-Header"> Your Journey 
-            <div className="Journey-Underline"> </div></div>
+            
             { entries.length !== 0 ? 
             (<>
-
+<div className="Journey-Header"> Your Journey 
+            <div className="Journey-Underline"> </div></div>
             <div className ="App-Graph">
             { limit === 7 ? (
                 <>
@@ -155,6 +155,7 @@ const Journey = (props) => {
             )}
                 
             </div>
+            
             <div className="App-Stats info-container">
                 Your Emission Score quantifies the negative contributions of the food you eat to preserving of the Amazon. 
                 Make it your goal to minimize your score and help protect the forest.
@@ -185,6 +186,10 @@ const Journey = (props) => {
 
             </>):
             (<> 
+
+<div className="Journey-Header-Sama">Log your first entry!</div>
+                <div className="Journey-Underline-Sama"></div>
+                <div className = "centering"> <Link to="/entry/1" className="Journey-Button">Start your Journey</Link> </div>
 
             </>)}
             

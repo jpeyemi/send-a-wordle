@@ -29,13 +29,21 @@
     padding: 30px;
 }
 
+.centering {
+    text-align: center;
+    width: 500px;
+    margin: 0 auto;
+    display: flex;
+  justify-content: center;
+}
+
 .range {
     text-align: center;
     place-items: center;
     display: inline-block;
 }
 
-.Journey-Header {
+.Journey-Header-Sama {
     transform: translateY(25%);
     text-align: center;
     font-family: 'Manrope', sans-serif;
@@ -45,7 +53,7 @@
     font-size: 30px;
 }
 
-.Journey-Underline {
+.Journey-Underline-Sama {
     width: 70px;
     height: 3px;
     background-color: var(--primary);
@@ -54,4 +62,29 @@
     margin-left: 50%;
     left: -35px;
     position: relative;
+    transform: translateY(300%);
+}
+
+.Journey-Button {
+    background: rgba(93, 110, 97, 1);
+    border-radius: 5px;
+    height: 40px;
+    width: 380px;
+    line-height: 40px;
+    display: block;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    color: var(--white); 
+    margin-top: 40px;
+    box-shadow: 0 0 0 0 rgba(93, 110, 97, 1);
+    transform: scale(1);
+    animation: pulse-dark 2s infinite;
+    text-decoration: none;
+
+}
+
+.Journey-Button:hover {
+    color: var(--white);
+    text-decoration: none;
+    animation: none;
 }
