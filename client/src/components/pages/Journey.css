@@ -92,3 +92,14 @@
 
     margin-left: 7px;
   }
+
+  .Journey-Note {
+    font-weight: normal;
+      font-family: 'Inter', sans-serif;
+      color: #475149; 
+      margin-bottom: 10px;
+      white-space:nowrap;
+      font-size: 14px;
+      font-style: italic;
+      text-align: center;
+  }

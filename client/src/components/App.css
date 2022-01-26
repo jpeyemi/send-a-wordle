@@ -13,6 +13,10 @@
   background-color: var(--primary--dim); 
 }
 
+.all {
+  margin-bottom: 60px;
+}
+
 .App-entryTitle{
   background-color: var(--primary);
   color: var(--white);

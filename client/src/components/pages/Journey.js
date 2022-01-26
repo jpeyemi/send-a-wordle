@@ -179,18 +179,18 @@ const Journey = (props) => {
             <div className="App-Stats info-container">
                 Your Emission Score is a score from 0 to 100 that represents your impact on the Amazon. The lower, the better!
             </div>
-            <div class='states'>
-                <div class='state-item state-one'>
+            <div className='states'>
+                <div className='state-item state-one'>
                 {<Button onClick = {seven} className ="btn-GraphButton btn-outline-* leftpls">
                 {<Stats scores={wscores} kind="Last 7 Entries"/>}
                 </Button>}
                 </div>
-                <div class='state-item state-two'>
+                <div className='state-item state-two'>
                 {<Button onClick = {thirty} className ="btn-GraphButton centerpls">
                 {<Stats scores={mscores} kind="Last 30 Entries"/>}
                 </Button>}
                 </div>
-                <div class='state-item state-three'>
+                <div className='state-item state-three'>
                 {<Button onClick = {all} className ="btn-GraphButton rightpls">
                 {<Stats scores={scores} kind="All Time"/>}
                 </Button>}
@@ -215,11 +215,14 @@ const Journey = (props) => {
                 </span>
                 </div> */ }
             <div className ="App-entryContainer">
+                <div className = "all">
                 <div className = "Journey-Header-2">
                     Past Entries
                 </div>
                 <div className = "Journey-Underline-2"></div>
+                <div className="Journey-Note">Note: All entries are in Coordinated Universal Time (UTC)</div>
                 {entriesList}
+                </div>
             </div>
 
             </>):
