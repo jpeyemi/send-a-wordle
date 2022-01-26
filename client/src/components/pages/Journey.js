@@ -148,8 +148,8 @@ const Journey = (props) => {
             
             { entries.length !== 0 ? 
             (<>
-<div className="Journey-Header-Sama"> Your Journey 
-            <div className="Journey-Underline-Sama"> </div></div>
+<div className="Journey-Header"> Your Journey 
+            <div className="Journey-Underline"> </div></div>
             <div className ="App-Graph">
             { limit === 7 ? (
                 <>
@@ -176,10 +176,27 @@ const Journey = (props) => {
             </div>
             
             <div className="App-Stats info-container">
-                Your Emission Score quantifies the negative contributions of the food you eat to preserving of the Amazon. 
-                Make it your goal to minimize your score and help protect the forest.
+                Your Emission Score is a score from 0 to 100 that represents your impact on the Amazon. The lower, the better!
             </div>
-            <div className = "App-Stats">
+            <div class='states'>
+                <div class='state-item state-one'>
+                {<Button onClick = {seven} className ="btn-GraphButton btn-outline-* leftpls">
+                {<Stats scores={wscores} kind="Last 7 Entries"/>}
+                </Button>}
+                </div>
+                <div class='state-item state-two'>
+                {<Button onClick = {thirty} className ="btn-GraphButton centerpls">
+                {<Stats scores={mscores} kind="Last 30 Entries"/>}
+                </Button>}
+                </div>
+                <div class='state-item state-three'>
+                {<Button onClick = {all} className ="btn-GraphButton rightpls">
+                {<Stats scores={scores} kind="All Time"/>}
+                </Button>}
+                </div>
+            </div>
+
+            {/* <div className = "App-Stats">
                 <span className="u-inlineBlock App-Statsspacing">
                 {<Button onClick = {seven} className ="btn-GraphButton btn-outline-*">
                 {<Stats scores={wscores} kind="Last 7 Entries"/>}
@@ -195,11 +212,12 @@ const Journey = (props) => {
                 {<Stats scores={scores} kind="All Time"/>}
                 </Button>}
                 </span>
-            </div>
+                </div> */ }
             <div className ="App-entryContainer">
-                <div className = "App-entryTitle">
+                <div className = "Journey-Header-2">
                     Past Entries
                 </div>
+                <div className = "Journey-Underline-2"></div>
                 {entriesList}
             </div>
 

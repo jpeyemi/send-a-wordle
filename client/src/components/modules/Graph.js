@@ -94,8 +94,13 @@ const Graph = (props) => {
                                   unit: 'day'
                                 },
                                 title: {
-                                    display: true,
-                                    text: 'Date'
+                                  display: true,
+                                  text: 'Date',
+                                  font: {
+                                    size: 20,
+                                    family: "Inter",
+                                  },
+                                    
                                   }
                                 },
                             y: {

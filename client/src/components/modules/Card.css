@@ -1,11 +1,15 @@
 .Card-container {
   border: var(--darkgrey) 1px solid;
-  padding: var(--m)
-  
+  padding: var(--m);
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .Card-container:first-of-type {
   margin-top: var(--l);
+}
+
+.Card-container:last-of-type {
+  margin-bottom:50px;
 }
 
 .Card-story,
@@ -43,12 +47,14 @@
   font-size: 18px;
   color: var(--grey);
   padding-left: var(--m);
+  font-family: 'Inter', sans-serif;
   
 }
 
 .Card-scoreText{
   font-size: 22px;
   color: var(--black);
+  font-family: 'Manrope', sans-serif;
 }
 
 .CardL-container {
@@ -56,6 +62,6 @@
   padding: var(--s);
   border-radius: var(--s);
   background-color: var(--white);
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 7px;
 }

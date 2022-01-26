@@ -3,26 +3,40 @@
     padding: 18px;
     background-color: rgba(0, 0, 0, 0.0);
     text-align: center;
-    border-radius: var(--l);
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.0);
+    border-radius: 5px;
+    
+}
+
+.Stats-underline {
+    width: 70px;
+    height: 3px;
+    background-color: var(--primary);
+    justify-content: center;
+    text-align: center;
+    margin-left: 85px;
+    position: relative;
+    margin-bottom: 20px;
 }
 
 .Stats-labels{
-    font-size: 30px;
-    color: var(--black);
+    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+    color: #475149; 
 }
 
 .Stats-title{
-    font-size: 30px;
-    color: var(--black);
-    font-weight: bold;
+    font-size: 25px;
+    font-family: 'Manrope', sans-serif;
+    letter-spacing: 0.5px;
+    color: #475149; 
 }
 
 .Stats-data{
-    font-size: 32px;
-    font-weight: 100;
-    color: var(--black);
-    padding: var(--m);
+    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+    color: var(--primary); 
+    font-weight: 600;
+    padding: 10px;
 }
 
 .Stats-box{

@@ -28,6 +28,8 @@ const Stats = (props) => {
             <div className = "Stats-title">
                 {props.kind}
             </div>
+            <div className = "Stats-underline">
+            </div>
             <div>
                 <span className = "Stats-labels">
                     Best Score:
