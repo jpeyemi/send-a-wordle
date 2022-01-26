@@ -162,6 +162,7 @@ const Temp = (props) => {
 
     return (
         <>
+        <section className="LeaderboardSection">
         <div className="Leaderboard-Header"> Leaderboard 
         <div className="Leaderboard-Underline"> </div></div>
         <div class='footer'>
@@ -178,7 +179,7 @@ const Temp = (props) => {
                 {havgList}
             </div>
         </div>
-        
+        </section>
         </> 
     );
 };

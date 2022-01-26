@@ -34,3 +34,24 @@
     place-items: center;
     display: inline-block;
 }
+
+.Journey-Header {
+    transform: translateY(25%);
+    text-align: center;
+    font-family: 'Manrope', sans-serif;
+    letter-spacing: 0.5px;
+    margin-top: 40px;
+    color: #475149; 
+    font-size: 30px;
+}
+
+.Journey-Underline {
+    width: 70px;
+    height: 3px;
+    background-color: var(--primary);
+    justify-content: center;
+    text-align: center;
+    margin-left: 50%;
+    left: -35px;
+    position: relative;
+}

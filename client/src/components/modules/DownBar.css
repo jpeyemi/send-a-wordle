@@ -1,0 +1,40 @@
+.DownBar-container {
+    height: 80px;
+    padding: var(--s) var(--m);
+    background-color: var(--primary);
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow: hidden;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 0;
+  }
+  
+  .DownContainer {
+    width: 150px;
+    height: 34px;
+    margin: 0 auto;
+    transform: translateY(40%);
+    display: inline-block;
+    
+  }
+  
+  .DownPhoto {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-image: url("../../public/ZD6HV.png");
+    justify-content: center;
+    align-items: center;
+    display: inline-block;
+  }
+
+  .downer {
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
+  }
+  
+  .downer-item {
+    height: 60px;
+  }
