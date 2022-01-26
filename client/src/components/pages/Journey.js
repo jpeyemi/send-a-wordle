@@ -8,6 +8,7 @@ import "../App.css"
 //import Chart from "../modules/Chart.js";
 import Graph from "../modules/Graph.js";
 import "../modules/Stats.css"
+import "./Journey.css"
 import { Button } from "react-bootstrap";
 //import other components tbd
 import { Chart } from "chart.js";
@@ -105,6 +106,8 @@ const Journey = (props) => { //pass user info to Journey
 
     let entriesList = null;
     let graph = null;
+    let grapht = null;
+    let grapha = null;
     const hasEntries = entries.length !== 0;
     if (hasEntries) {
         entriesList = entries.map((entryObj) => (
@@ -114,7 +117,10 @@ const Journey = (props) => { //pass user info to Journey
             _id = {entryObj._id}
         />
     ));
-        graph = (<Graph data={data} limit={limit}/>)
+        graph = (<Graph data={data} limit = {7} />)
+        grapht = (<Graph data={data} limit = {30} />)
+        grapha = (<Graph data={data} limit = {Number.POSITIVE_INFINITY} />)
+
     } else {
         entriesList = <div>No Entries Yet!</div>;
     }
@@ -135,105 +141,6 @@ const Journey = (props) => { //pass user info to Journey
         //graph = (<Graph data={data} limit={limit}/>)
         console.log("sama bad")
     }, [limit])
-
-
-    /*let myChart = document.getElementById('myChart')
-    const[graph,setGraph] = useState();
-    const[exist,setExist] = useState(false);
-  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>;
-
-    useEffect(()=> {
-        console.log(get("../api/whoami"));
-        console.log(data);
-        console.log(limit)
-        console.log(Object.keys(data))
-        let xValues = null;
-        let yValues = null;
-        let xValues = entries.map((ent) => (
-            ent.timestamp.substring(0,10)
-        ));
-        let yValues = entries.map((ent) => (
-            ent.score
-        ));
-        console.log(xValues)
-        get("../api/whoami").then((am) => {
-            if(am !== {} && !exist){
-                xValues = Object.keys(data).reverse().slice(-limit)
-                let xval = xValues.map((val) => (
-                  new Date(val)
-                ));
-              
-                yValues = Object.values(data).reverse().slice(-limit)
-                console.log(xValues)
-
-                let myChart = document.getElementById('myChart')
-                console.log(x)
-                setGraph(new Chart(myChart, {
-                    type: "line",
-                    data: {
-                        labels: x,
-                        datasets: [{
-                            label: "Emmision Score",
-                            backgroundColor: "rgba(0,90,0,1.0)",
-                            borderColor: "rgba(0,90,0,.2)",
-                            data: y,
-                        }]
-                    },
-                    options:{
-                        legend: {display: true},
-                        title: {
-                          font: {
-                            size: 20,
-                            
-                          },
-                        },
-                        tooltips: {
-                          titleFontSize: 14,
-                          //not working
-                        },
-                        plugins: {
-                            title: {
-                              display: true,
-                              text: 'Your Progress',
-                              font: {
-                                size: 30,
-                                family: "Inter",
-                              },
-                            }
-                          },
-                          scales: {
-                            //adapters.date, 
-                            x: {
-                                type: 'time',
-                                time: {
-                                  unit: 'day'
-                                },
-                                title: {
-                                    display: true,
-                                    text: 'Date'
-                                  }
-                                },
-                            y: {
-                              min: 0,
-                              max: 100,
-                            }
-                          }
-                    }
-                }) )
-                setExist(true);
-            }});
-    } ,[exist]);
-    useEffect(() => {
-      if(exist){
-        graph.data.labels.pop();
-        graph.data.labels.push(x)
-        graph.data.datasets.pop();
-        graph.data.datasets.push(y)
-        //graph.update();
-        graph.destroy()
-    }
-    }, [x,y])*/
     
 
     return(
@@ -244,26 +151,46 @@ const Journey = (props) => { //pass user info to Journey
             <div className ="App-Graph">
                 {/*<canvas id="myChart" height="175"></canvas>*/}
 
+            { limit === 7 ? (
+                <>
                 {graph}
+                </>
+            ):(
+                <>
+                    {limit === 30 ? (
+                        <>
+                        {grapht}
+                        </>
+                    ):(
+                        <>
+                        {grapha}
+                        </>
+                    )}
+                </>
+            )}
+                
                 {/*<Graph data={data} limit={limit}/>*/}
                 
             </div>
             <div className="App-Stats info-container">
-                Your Emission Score quantifies the negative contibutions of the food you eat to the preservation of the Amazon. 
+                Your Emission Score quantifies the negative contributions of the food you eat to preserving of the Amazon. 
                 Make it your goal to minimize your score and help protect the forest.
             </div>
             <div className = "App-Stats">
                 <span className="u-inlineBlock App-Statsspacing">
+                {<Button onClick = {seven} className ="btn-GraphButton btn-outline-*">
                 {<Stats scores={wscores} kind="Last 7 Entries"/>}
+                </Button>}
                 </span>
                 <span className="u-inlineBlock App-Statsspacing">
+                {<Button onClick = {thirty} className ="btn-GraphButton">
                 {<Stats scores={mscores} kind="Last 30 Entries"/>}
+                </Button>}
                 </span>
                 <span className ="u-inlineBlock App-Statsspacing">
+                {<Button onClick = {all} className ="btn-GraphButton">
                 {<Stats scores={scores} kind="All Time"/>}
-                {/*<Button onClick = {all} >
-                {<Stats scores={scores} kind="All Time"/>}
-                </Button>*/}
+                </Button>}
                 </span>
             </div>
     {/*<span className="u-inlineBlock">{graph}</span>*/}

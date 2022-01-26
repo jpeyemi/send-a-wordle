@@ -1,0 +1,13 @@
+.btn-GraphButton{
+    color: var(--white);
+    background-color: var(--white);
+    border: var(--darkgrey) 0px solid;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+    border-radius: var(--l);
+}
+.btn-GraphButton:hover, .btn-GraphButton:active, .btn-GraphButton.active, .btn-GraphButton:focus {
+    background-color: var(--primary);
+    border: var(--primary) 1px solid;
+    outline: none;
+    box-shadow: none;
+}
