@@ -36,8 +36,8 @@ const Skeleton = (props) => {
   return (
     <>
     <section id="intro">
-      <div class='header' id="skel">
-          <div class='header-item header-one'>
+      <div className='header' id="skel">
+          <div className='header-item header-one'>
             <h1 className = "titleText">What we eat matters.</h1>
             <p className = "bodyText">The Amazonian Rainforest is reaching an irreversible tipping point, 
         and our everyday food choices directly impact its future. 
@@ -47,7 +47,7 @@ const Skeleton = (props) => {
         {!isLogged && <LoginModal text="Start your Journey" handleLogin={props.handleLogin} /> }
           </div>
           
-          <div class='header-item header-two'>
+          <div className='header-item header-two'>
             {!canSee && <div className="acai" onClick={() => { increment(); console.log("here");}}> </div>}
             {canSee && <div className="cursed"> </div>}
           </div>
@@ -65,25 +65,25 @@ const Skeleton = (props) => {
         Our free, interactive calculator generates your <span id="bolded">Emission Score</span> - a score from 0 to 100 that represents your impact 
         on the Amazon.</p>  
 
-        <div class='tools'>
-  <div class='tool-item tool-one'>
-   <div class="firstContainer"> 
-    <div class="first"></div>
+        <div className='tools'>
+  <div className='tool-item tool-one'>
+   <div className="firstContainer"> 
+    <div className="first"></div>
    </div>
       <div className = "featuresTextBolded One">Daily Quiz</div>
       <div className = "featuresText One">Answer a few questions to discover how 
       your food impacts the Amazon.</div>
   </div>
-  <div class='tool-item tool-two'>
-  <div class="secondContainer">
-     <div class="second"></div>
+  <div className='tool-item tool-two'>
+  <div className="secondContainer">
+     <div className="second"></div>
      </div>
      <div className = "featuresTextBolded Two">Track your Progress</div>
       <div className = "featuresText Two">Our Journey feature helps you understand your habits
        and eat more mindfully.</div>
   </div>
-  <div class='tool-item tool-three'>
-  <div class="thirdContainer"> <div class="third"></div></div>
+  <div className='tool-item tool-three'>
+  <div className="thirdContainer"> <div className="third"></div></div>
   <div className = "featuresTextBolded Three">Leaderboard</div>
       <div className = "featuresText Three">Compete with friends and people around the globe for the best
        Emission Score.</div>

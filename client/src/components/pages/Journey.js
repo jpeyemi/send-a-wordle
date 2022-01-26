@@ -235,9 +235,12 @@ const Journey = (props) => { //pass user info to Journey
     }
     }, [x,y])*/
     
-    
+
     return(
         <>
+            { entries.length !== 0 ? 
+            (<>
+
             <div className ="App-Graph">
                 {/*<canvas id="myChart" height="175"></canvas>*/}
 
@@ -276,6 +279,12 @@ const Journey = (props) => { //pass user info to Journey
                 </div>
                 {entriesList}
             </div>
+
+            </>):
+            (<> 
+
+            </>)}
+            
             
         </>
     )
