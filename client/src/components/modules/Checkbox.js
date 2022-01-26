@@ -7,7 +7,7 @@ const Checkbox = (props) => {
     const [isChecked, setChecked] = useState(sessionStorage.getItem(props.id) === "true");
 
     useEffect(() => {
-        console.log("at use effect");
+       console.log("at use effect");
         for (let i = 0; i < sessionStorage.length; i++) {
             console.log(JSON.stringify(sessionStorage.key(i)) + ", " + sessionStorage.getItem(sessionStorage.key(i)));
         }

@@ -48,7 +48,7 @@ const NavBar = (props) => {
           <span className = "name"> 
             Hello, {name}
           </span>
-          <Link to="/entry/1" className="NavBar-link NavBar-login">
+          <Link to="/entry/00" className="NavBar-link NavBar-login">
             Log Now!
           </Link>
           <GoogleLogout

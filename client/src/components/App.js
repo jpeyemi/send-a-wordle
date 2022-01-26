@@ -18,6 +18,8 @@ import EntryPage1 from "./pages/EntryPage1.js";
 import EntryPage2 from "./pages/EntryPage2.js";
 import EntryPage3 from "./pages/EntryPage3.js";
 import EntryPage4 from "./pages/EntryPage4.js";
+import EntryNeg from "./pages/EntryNeg.js";
+import EntryPage0 from "./pages/EntryPage0.js";
 
 /**
  * Define the "App" component
@@ -68,6 +70,8 @@ const App = () => {
           <Skeleton path="/" userId={userId} handleLogin={handleLogin} />
           <Journey path="/journey/:userId"userId={userId}/>
           <Temp path = "/leaderboard/" userId = {userId}/>
+          <EntryNeg path="/entry/00" userId={userId} />
+          <EntryPage0 path="/entry/0" userId={userId} />
           <EntryPage1 path="/entry/1" userId={userId} />
           <EntryPage2 path="/entry/2" userId={userId} />
           <EntryPage3 path="/entry/3" userId={userId} />

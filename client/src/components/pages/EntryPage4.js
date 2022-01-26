@@ -10,7 +10,7 @@ const EntryPage4 = (props) => {
         console.log(sessionStorage.getItem('slider'));
     }, []);*/
     const [servings, setServings] = useState({})
-    const [entryDate, setD] = useState(new Date());
+    {/*Here const [entryDate, setD] = useState(new Date());*/}
     const serv = (type, servs) => {
         servings[type] = servs;
     };
@@ -57,10 +57,6 @@ const EntryPage4 = (props) => {
             duration: 700,
             iterations: 2
         });
-    }
-
-    const datesel = (date) =>{
-        setD(date)
     }
 
     const handleSubmit = () => {
@@ -170,9 +166,11 @@ const EntryPage4 = (props) => {
         let val = Math.round(carbonActual);
         console.log("after everything: " + val);
 
+        const dateObj = new Date(sessionStorage.getItem("date"));
+
         // finished! time to post.
         console.log(val);
-        const body = {score: val, creator_id: props.userId, timestamp: entryDate};
+        const body = {score: val, creator_id: props.userId, timestamp: dateObj};
         post("/api/entry", body).then(()=> {
             location.reload();
         });
@@ -185,23 +183,23 @@ const EntryPage4 = (props) => {
             <h2 className="EntryPageQuestion">How many of these foods did you eat?</h2>
             <div className="EntryPageNote">(by buying sustainably-harvested products, you can help preserve the forest!)</div>
             
-            <Checkbox text="Açaí berries" id="acai" save={serv} servs = {servings} />
+            <Checkbox className = "checkbox" text="Açaí berries" id="acai" save={serv} servs = {servings} />
             <br />
-            <Checkbox text="Amazonian cocoa" id="cocoa" save={serv} servs = {servings} />
+            <Checkbox className = "checkbox" text="Amazonian cocoa" id="cocoa" save={serv} servs = {servings} />
             <br />
-            <Checkbox text="Brazil nuts" id="nuts" save={serv} servs = {servings} />
+            <Checkbox className = "checkbox" text="Brazil nuts" id="nuts" save={serv} servs = {servings} />
             <br />
-            <Checkbox text="Guaraná berries" id="gua" save={serv} servs = {servings} />
+            <Checkbox className = "checkbox" text="Guaraná berries" id="gua" save={serv} servs = {servings} />
             <br />
 
             <Link to="/journey/:userId" className="SubmitButton" 
                 onClick = {handleSubmit}>Submit
             </Link>
 
-            <div className="DateInput">
+            {/*<div className="DateInput">
                 Entry Date:
                 <DateSelector datesel = {datesel}/>
-            </div>
+    </div>*/}
             
             <Link to="/entry/3" className="LeftArrowContainer" 
                 onMouseOver = { handleLeftArrowHover } 
