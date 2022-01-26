@@ -133,8 +133,8 @@ const Journey = (props) => {
             
             { entries.length !== 0 ? 
             (<>
-<div className="Journey-Header"> Your Journey 
-            <div className="Journey-Underline"> </div></div>
+<div className="Journey-Header-Sama"> Your Journey 
+            <div className="Journey-Underline-Sama"> </div></div>
             <div className ="App-Graph">
             { limit === 7 ? (
                 <>

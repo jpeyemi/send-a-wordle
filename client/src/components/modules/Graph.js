@@ -42,9 +42,6 @@ const Graph = (props) => {
                 let xval = xValues.map((val) => (
                   val.substring(0,10)
                 ));
-                /*let xval = xValues.map((val) => (
-                  new Date(val)
-                ));*/
               
                 let yValues = Object.values(props.data).reverse().slice(-props.limit)
                 console.log(xValues)
@@ -56,7 +53,7 @@ const Graph = (props) => {
                     data: {
                         labels: xval,
                         datasets: [{
-                            label: "Emmision Score",
+                            label: "Emission Score",
                             backgroundColor: "rgba(0,90,0,1.0)",
                             borderColor: "rgba(0,90,0,.2)",
                             data: yValues,
@@ -114,15 +111,6 @@ const Graph = (props) => {
                 setExist(true);
             }});
     } ,[]);
-    useEffect(() => {
-      /*if(exist){
-        graph.data.labels.pop();
-        graph.data.labels.push(Object.keys(props.data))
-        graph.data.datasets.pop();
-        graph.data.datasets.push(Object.values(props.data))
-        graph.update();
-    }*/
-    }, [props.limit])
     
     
     return(
