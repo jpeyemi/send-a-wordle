@@ -67,12 +67,12 @@ const App = () => {
         <Router>
           <Skeleton path="/" userId={userId} handleLogin={handleLogin} />
           <Journey path="/journey/:userId"userId={userId}/>
-          <Leaderboard path = "/leaderboard/" userId = {userId}/>
+          <Temp path = "/leaderboard/" userId = {userId}/>
           <EntryPage1 path="/entry/1" userId={userId} />
           <EntryPage2 path="/entry/2" userId={userId} />
           <EntryPage3 path="/entry/3" userId={userId} />
           <EntryPage4 path="/entry/4" userId={userId} />
-          <Temp path="/temp" userId={userId} />
+          <Leaderboard path="/temp" userId={userId} />
           <LearnMore path = "/learnmore/"/>
           
           <NotFound default />
