@@ -58,13 +58,26 @@ const Temp = (props) => {
         let dscores = null;
         let at = null;
         let hDict = {};
+        let ent =[];
+        let saul = {}
         yesterday.setDate(yesterday.getDate() - 1)
         for(let i = 0; i < users.length; i++){
+            ent = []
+            saul = {}
             uentries = entries.filter(e => e.creator_id === users[i]._id)
+            let time = ' '
+            let entriez = uentries.sort((a,b) => new Date(a.timestamp) - new Date(b.timestamp))
+            for(let j = 0; j<entriez.length;j++){
+                time = String(entriez[j].timestamp).substring(0,10)
+                saul[time] = j
+            }
+            for(let k = 0; k < Object.keys(saul).length; k++){
+                ent.push(entriez[saul[Object.keys(saul)[k]]])
+            }
             //daily = uentries.filter(e => (Number(e.timestamp.substring(0,4)) == Number(yesterday.getFullYear().toString()) && Number(e.timestamp.substring(5,7))== Number(yesterday.getMonth()))+1 && e.timestamp.substring(8,10) == yesterday.getDate().toString())
-            daily = uentries.slice(-1)
-            if(uentries.length !== 0){
-                scores = uentries.map((entryObj) => (
+            daily = ent.slice(-1)
+            if(ent.length !== 0){
+                scores = ent.map((entryObj) => (
                     Number(entryObj.score)
                 ))
             }else{
@@ -78,8 +91,6 @@ const Temp = (props) => {
                 dscores = [Number.POSITIVE_INFINITY]
             }
             at = Math.min(...scores)
-            console.log(scores)
-            console.log(at)
             avg = 0
             for (let j = 0; j < scores.length ;j++){
                 avg += scores[j]
@@ -89,7 +100,6 @@ const Temp = (props) => {
             ustoid[users[i]._id] = users[i].name                          
             dDict[users[i]._id] = Math.round(dscores)
             hDict[users[i]._id] = Math.round(at)
-            console.log(myDict)
         }
         if(Object.keys(myDict).length === users.length){
             setDaniel(ustoid);
@@ -103,7 +113,6 @@ const Temp = (props) => {
     sortUseravg = Object.keys(dict).sort((a,b) => dict[a] - dict[b])
     sortUseravg = sortUseravg.slice(0,8)
     const hasUsers = users.length !== 0;
-    console.log(sortUseravg)
     if (hasUsers && sortUseravg) {
         avgList = sortUseravg.map((user) => (
         <TempCard

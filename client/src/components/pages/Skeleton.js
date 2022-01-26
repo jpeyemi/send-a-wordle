@@ -16,8 +16,6 @@ const Skeleton = (props) => {
 
   document.body.style = 'background: #fff;';
 
-  console.log(canSee);
-
   useEffect(() => {
     if (props.userId === undefined) {
       setLogged(false);
@@ -25,13 +23,6 @@ const Skeleton = (props) => {
       setLogged(true);
     }
   });
-
-  const increment = () => {
-    setVal(val + 1);
-    if (val === 10) {
-      setSee(true);
-    }
-  };
 
   return (
     <>
@@ -48,8 +39,7 @@ const Skeleton = (props) => {
           </div>
           
           <div className='header-item header-two'>
-            {!canSee && <div className="acai" onClick={() => { increment(); console.log("here");}}> </div>}
-            {canSee && <div className="cursed"> </div>}
+            <div className="acai"> </div>
           </div>
         </div>
         </section>

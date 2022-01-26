@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Card from "../modules/Card.js";
 import { NewEntry } from "../modules/NewPostInput.js";
-import { get } from "../../utilities";
+import { get, post } from "../../utilities";
 import Stats from "../modules/Stats.js";
 import { Link } from "@reach/router";
 import "../App.css"
@@ -37,7 +37,6 @@ const Journey = (props) => {
             Number(entryObj.score)
         ));
         let wentryObjs = entryObjs.slice(-7)
-        console.log(wentryObjs)
         let wscores = wentryObjs.map((wentryObj) => (
             Number(wentryObj.score)
         ));
@@ -68,9 +67,7 @@ const Journey = (props) => {
     useEffect(() => {
         get("/api/entries", {user: props.userId}).then((entries) => {
             let time = ' '
-            console.log(entries)
             let entriez = entries.sort((a,b) => new Date(a.timestamp) - new Date(b.timestamp))
-            console.log(entriez)
             for(let i = 0; i<entriez.length;i++){
                 time = String(entriez[i].timestamp).substring(0,10)
                 saul[time] = i
@@ -105,17 +102,13 @@ const Journey = (props) => {
     ));
         graph = (<Graph data={data} limit = {7} />)
         grapht = (<Graph data={data} limit = {30} />)
-        grapha = (<Graph data={data} limit = {Number.POSITIVE_INFINITY} />)
+        grapha = (<Graph data={data} limit = {Number.MAX_SAFE_INTEGER} />)
 
     } else {
         entriesList = <div>No Entries Yet!</div>;
     }
-    const niamh = () => {
-        console.log("niamh")
-    }
     const all = () => {
-        setLimit(Infinity)
-        console.log("all")
+        setLimit(Number.MAX_SAFE_INTEGER)
     }
     const seven = () => {
         setLimit(7)
@@ -123,10 +116,32 @@ const Journey = (props) => {
     const thirty = () => {
         setLimit(30)
     }
-    useEffect(() => {
-        console.log("sama bad")
-    }, [limit])
     
+   /* useEffect(()=>{
+        let x = new Date()
+        let days = []
+        let scores = []
+        for(let i = 0; i < 40; i++){
+            days.push(x - new Date(i*86400000))
+            scores.push(80-(2*i)+ Math.round(Math.random()*20))
+            if(Math.random()>.8){
+                i++;
+            }
+        }
+        console.log(days)
+        console.log(scores)
+        console.log(days.length)
+        let body = {}
+        scores = scores.reverse()
+        for(let j = 0; j< days.length; j++)
+        {
+            console.log("ayo");
+            body = {score: scores[j], creator_id: props.userId, timestamp: days[j]};
+            console.log(body)
+            console.log()
+            post("/api/entry", body)
+        }
+    },[]);*/
 
     return(
         <>
@@ -142,17 +157,21 @@ const Journey = (props) => {
                 </>
             ):(
                 <>
-                    {limit === 30 ? (
+                </>
+            )}
+            {limit === 30 ? (
                         <>
                         {grapht}
                         </>
                     ):(
-                        <>
-                        {grapha}
-                        </>
+                        <></>
                     )}
-                </>
-            )}
+            {limit > 31 ? (
+                <>
+                {grapha}
+                </>):(
+                    <></>
+                )}
                 
             </div>
             

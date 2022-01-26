@@ -34,8 +34,6 @@ const Graph = (props) => {
     </html>
 
     useEffect(()=> {
-        console.log(get("../api/whoami"));
-        console.log(props.data);
         get("../api/whoami").then((am) => {
             if(am !== {}){
                 let xValues = Object.keys(props.data).reverse().slice(-props.limit)
@@ -44,7 +42,6 @@ const Graph = (props) => {
                 ));
               
                 let yValues = Object.values(props.data).reverse().slice(-props.limit)
-                console.log(xValues)
 
                 let myChart = document.getElementById('myChart')
                 

@@ -18,7 +18,6 @@ const NavBar = (props) => {
   const [name,setName] = useState(undefined)
   useEffect(() => {
     get("/api/whoami").then((user) => {
-      console.log(user)
       if(Object.keys(user).length !== 0){
         setName(user.name.substring(0,user.name.indexOf(' '))) 
       }
