@@ -75,7 +75,7 @@ const Journey = (props) => { //pass user info to Journey
         get("/api/entries", {user: props.userId}).then((entries) => {
             let time = ' '
             console.log(entries)
-            let entriez = entries//entries.sort((a,b) => a.timestamp - b.timestamp)
+            let entriez = entries.sort((a,b) => new Date(a.timestamp) - new Date(b.timestamp))
             console.log(entriez)
             for(let i = 0; i<entriez.length;i++){
                 time = String(entriez[i].timestamp).substring(0,10)
@@ -246,7 +246,7 @@ const Journey = (props) => { //pass user info to Journey
                 
             </div>
             <div className="App-Stats info-container">
-                Your Emission Score quantifies the negative contibutions of the food you eat to preservation of the Amazon. 
+                Your Emission Score quantifies the negative contibutions of the food you eat to the preservation of the Amazon. 
                 Make it your goal to minimize your score and help protect the forest.
             </div>
             <div className = "App-Stats">

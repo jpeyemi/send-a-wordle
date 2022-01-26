@@ -13,7 +13,7 @@ const Card = (props) => {
                 Emission Score
             </span>
             <span className = "Card-date child">
-                 {props.entryObj.timestamp.substring(5,10)}-{props.entryObj.timestamp.substring(0,4)}
+                 {String(props.entryObj.timestamp).substring(5,10)}-{String(props.entryObj.timestamp).substring(0,4)}
             </span>
             
         </div>

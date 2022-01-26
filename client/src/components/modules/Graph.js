@@ -40,8 +40,11 @@ const Graph = (props) => {
             if(am !== {}){
                 let xValues = Object.keys(props.data).reverse().slice(-props.limit)
                 let xval = xValues.map((val) => (
-                  new Date(val)
+                  val.substring(0,10)
                 ));
+                /*let xval = xValues.map((val) => (
+                  new Date(val)
+                ));*/
               
                 let yValues = Object.values(props.data).reverse().slice(-props.limit)
                 console.log(xValues)
@@ -51,7 +54,7 @@ const Graph = (props) => {
                 setGraph(new Chart(myChart, {
                     type: "line",
                     data: {
-                        labels: xValues,
+                        labels: xval,
                         datasets: [{
                             label: "Emmision Score",
                             backgroundColor: "rgba(0,90,0,1.0)",
@@ -67,14 +70,22 @@ const Graph = (props) => {
                             
                           },
                         },
+                        labels: {
+
+                        },
                         tooltips: {
                           titleFontSize: 14,
                           //not working
+                          callbacks: {
+                            label: (tooltipItem) => {
+                              return tooltipItem.dataset.label.substring(0,10);
+                            }
+                        },
                         },
                         plugins: {
                             title: {
                               display: true,
-                              text: 'Your Progress',
+                              text: ' ',
                               font: {
                                 size: 30,
                                 family: "Inter",

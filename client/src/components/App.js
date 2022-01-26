@@ -17,6 +17,7 @@ import EntryPage1 from "./pages/EntryPage1.js";
 import EntryPage2 from "./pages/EntryPage2.js";
 import EntryPage3 from "./pages/EntryPage3.js";
 import EntryPage4 from "./pages/EntryPage4.js";
+import LearnMore from "./pages/LearnMore.js";
 
 /**
  * Define the "App" component
@@ -50,6 +51,7 @@ const App = () => {
   const handleLogout = () => {
     setUserId(undefined);
     setName(undefined)
+    window.location.replace("/");
     post("/api/logout");
   };
 
@@ -71,6 +73,7 @@ const App = () => {
           <EntryPage3 path="/entry/3" userId={userId} />
           <EntryPage4 path="/entry/4" userId={userId} />
           <Temp path="/temp" userId={userId} />
+          <LearnMore path = "/learnmore/"/>
           
           <NotFound default />
         </Router>

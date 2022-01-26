@@ -75,3 +75,7 @@ body {
     background-image: url("../../public/leftarrow.png");
     background-size: cover;
   }
+  
+  .DateInput {
+    padding-top: 20px;
+  }

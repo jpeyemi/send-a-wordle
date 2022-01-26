@@ -105,6 +105,7 @@ const Leaderboard = (props) => {
 
 
     sortUseravg = Object.keys(dict).sort((a,b) => dict[a] - dict[b])
+    sortUseravg = sortUseravg.slice(0,5)
     const hasUsers = users.length !== 0;
     console.log(sortUseravg)
     if (hasUsers && sortUseravg) {
@@ -120,6 +121,7 @@ const Leaderboard = (props) => {
         avgList = <div>No Users</div>;
     }
     dsortUseravg = Object.keys(ellie).sort((a,b) => ellie[a] - ellie[b])
+    dsortUseravg = dsortUseravg.slice(0,5)
     if (hasUsers && dsortUseravg) {
         davgList = dsortUseravg.map((user) => (
         <CardL
@@ -133,6 +135,7 @@ const Leaderboard = (props) => {
         davgList = <div>No Users</div>;
     }
     hsortUseravg = Object.keys(elise).sort((a,b) => elise[a] - elise[b])
+    hsortUseravg = hsortUseravg.slice(0,5)
     if (hasUsers && hsortUseravg) {
         havgList = hsortUseravg.map((user) => (
         <CardL

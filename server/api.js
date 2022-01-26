@@ -63,6 +63,7 @@ router.post("/entry", auth.ensureLoggedIn, (req,res) => {
     creator_id: req.body.creator_id,
     creator_name: req.user.name,
     score: req.body.score, //command tbd
+    timestamp: req.body.timestamp,
   });
   newEntry.save().then((entry) => res.send(entry));
 });

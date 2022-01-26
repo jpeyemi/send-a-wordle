@@ -18,8 +18,10 @@ const NavBar = (props) => {
   const [name,setName] = useState(undefined)
   useEffect(() => {
     get("/api/whoami").then((user) => {
-
-      setName(user.name.substring(0,user.name.indexOf(' '))) 
+      console.log(user)
+      if(Object.keys(user).length !== 0){
+        setName(user.name.substring(0,user.name.indexOf(' '))) 
+      }
     });
   })
   
@@ -37,6 +39,9 @@ const NavBar = (props) => {
         )}
         <Link to="/leaderboard/" className="NavBar-link">
           Leaderboard
+        </Link>
+        <Link to="/learnmore/" className ="NavBar-link">
+          Learn More
         </Link>
         
       </div>

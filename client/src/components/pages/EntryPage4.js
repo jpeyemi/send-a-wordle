@@ -3,12 +3,14 @@ import "./EntryPage.css";
 import { Link } from "@reach/router";
 import Checkbox from "../modules/Checkbox.js";
 import { post } from "../../utilities";
+import DateSelector from "../modules/DateSelector.js"
 
 const EntryPage4 = (props) => {
     /*useEffect(() => {
         console.log(sessionStorage.getItem('slider'));
     }, []);*/
     const [servings, setServings] = useState({})
+    const [entryDate, setD] = useState(new Date());
     const serv = (type, servs) => {
         servings[type] = servs;
     };
@@ -55,6 +57,10 @@ const EntryPage4 = (props) => {
             duration: 700,
             iterations: 2
         });
+    }
+
+    const datesel = (date) =>{
+        setD(date)
     }
 
     const handleSubmit = () => {
@@ -161,7 +167,7 @@ const EntryPage4 = (props) => {
 
         // finished! time to post.
         console.log(val);
-        const body = {score: val, creator_id: props.userId};
+        const body = {score: val, creator_id: props.userId, timestamp: entryDate};
         post("/api/entry", body).then(()=> {
             location.reload();
         });
@@ -187,6 +193,11 @@ const EntryPage4 = (props) => {
                 onClick = {handleSubmit}>Submit
             </Link>
 
+            <div className="DateInput">
+                Entry Date:
+                <DateSelector datesel = {datesel}/>
+            </div>
+            
             <Link to="/entry/3" className="LeftArrowContainer" 
                 onMouseOver = { handleLeftArrowHover } 
                 onClick = {handleClick} >

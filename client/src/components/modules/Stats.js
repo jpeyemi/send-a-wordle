@@ -15,6 +15,13 @@ const Stats = (props) => {
             min = props.scores[i]
         }
     }
+    avg = Math.round(avg)
+    if(avg !== avg){
+        avg = "N/A"
+    }
+    if(min === undefined){
+        min = "N/A"
+    }
 
     return(
         <div className = "Stats-container">
@@ -31,7 +38,7 @@ const Stats = (props) => {
                 <span className = "Stats-labels">
                     Average: 
                 </span>
-                <span className ="Stats-data">{Math.round(avg)}</span>
+                <span className ="Stats-data">{avg}</span>
             </div>
                 
         </div>
