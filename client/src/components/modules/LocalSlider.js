@@ -35,7 +35,7 @@ const LocalSlider = (props) => {
     const[text, setText] = useState(props.find(sessionStorage.getItem(props.id)));
     useEffect(()=> {
         if(Object.keys(props.servs).includes(props.id)){
-            console.log(props.servs[props.id]);
+            //console.log(props.servs[props.id]);
             setValue(servMap[props.servs[props.id]]-1);   
         }
     }, []);

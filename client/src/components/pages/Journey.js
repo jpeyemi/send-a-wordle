@@ -31,7 +31,7 @@ const Journey = (props) => {
     const [saul, setSaul] = useState({});
     const [x, setX] = useState([]);
     const [y,setY] = useState([]);
-    document.body.style = 'backround var(--primary--dim)'
+    document.body.style = 'background var(--primary--dim)'
     const makeScores = (entryObjs) => {
         let scores = entryObjs.map((entryObj) => (
             Number(entryObj.score)
@@ -95,6 +95,7 @@ const Journey = (props) => {
     if (hasEntries) {
         entriesList = entries.map((entryObj) => (
         <Card
+            key={`Card_${entryObj._id}`}
             entryObj = {entryObj}
             userId = {props.userId}
             _id = {entryObj._id}

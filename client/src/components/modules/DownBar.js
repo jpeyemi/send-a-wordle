@@ -9,8 +9,8 @@ const DownBar = (props) => {
   
   return (
     <nav className="DownBar-container">
-        <div class='downer'>
-            <div class='downer-item'>
+        <div className='downer'>
+            <div className='downer-item'>
                 <div className = "DownContainer"> 
                     <div className="DownPhoto"></div> 
                 </div>

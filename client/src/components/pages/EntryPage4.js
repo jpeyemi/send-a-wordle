@@ -32,9 +32,9 @@ const EntryPage4 = (props) => {
         /*for (const [key, value] of Object.entries(servings)) {
             sessionStorage.setItem(key, value);
         }*/
-        for (let i = 0; i < sessionStorage.length; i++) {
+        /*for (let i = 0; i < sessionStorage.length; i++) {
             console.log(JSON.stringify(sessionStorage.key(i)) + ", " + sessionStorage.getItem(sessionStorage.key(i)));
-        }
+        }*/
     }
 
     const handleRightArrowHover = () => {
@@ -73,10 +73,10 @@ const EntryPage4 = (props) => {
                 carbonScore += normPercent * map[meat] * sessionStorage.getItem(meat) + localPercent * localMap[meat] * sessionStorage.getItem(meat);
             }
         }
-        console.log("after meat calc: " + carbonScore);
+        //console.log("after meat calc: " + carbonScore);
 
         carbonScore += normPercent * map["dairy"] * sessionStorage.getItem("dairy") + localPercent * localMap["dairy"] * sessionStorage.getItem("dairy");
-        console.log("after dairy calc: " + carbonScore);
+        //console.log("after dairy calc: " + carbonScore);
 
         if (sessionStorage.getItem("veganTouched") === "false") {
             carbonScore += normPercent * map["non"] * sessionStorage.getItem("non") + localPercent * localMap["non"] * sessionStorage.getItem("non");
@@ -86,7 +86,7 @@ const EntryPage4 = (props) => {
                 carbonScore += normPercent * map[alt] * sessionStorage.getItem(alt) + localPercent * localMap[alt] * sessionStorage.getItem(alt);
             }
         }
-        console.log("after vegan calc: " + carbonScore);
+        //console.log("after vegan calc: " + carbonScore);
 
         /*// next, look at meat
         if (!sessionStorage.getItem("beef") && !sessionStorage.getItem("lamb") &&
@@ -137,7 +137,7 @@ const EntryPage4 = (props) => {
 
         // conversion
         carbonScore *= convFactor;
-        console.log("after converting: " + carbonScore);
+        //console.log("after converting: " + carbonScore);
 
         // look at acai, etc.
         let consList = ["acai", "cocoa", "nuts", "gua"];
@@ -146,7 +146,7 @@ const EntryPage4 = (props) => {
                 carbonScore -= 5;
             }
         }
-        console.log("after acai calc: " + carbonScore);
+        //console.log("after acai calc: " + carbonScore);
 
         // capping
         // cap:143.22167399999998
@@ -159,17 +159,17 @@ const EntryPage4 = (props) => {
             carbonScore = 0;
         }
 
-        console.log("after capping: " + carbonScore);
+        //console.log("after capping: " + carbonScore);
 
         // calculating out of 100
         let carbonActual = (Number(carbonScore) / cap) * 100;
         let val = Math.round(carbonActual);
-        console.log("after everything: " + val);
+        //console.log("after everything: " + val);
 
         const dateObj = new Date(sessionStorage.getItem("date"));
 
         // finished! time to post.
-        console.log(val);
+        //console.log(val);
         const body = {score: val, creator_id: props.userId, timestamp: dateObj};
         post("/api/entry", body).then(()=> {
             location.reload();

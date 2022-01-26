@@ -54,7 +54,7 @@ const DivineSliderTheSliderToEndAllSliders = (props) => {
         let meatPossible = ["beef", "lamb", "pork", "poultry"];
         for (const i of meatPossible) {
             if (props.id === i) {
-                console.log("match");
+                //console.log("match");
                 sessionStorage.setItem("meatTouched", true);
             }
         }
@@ -62,7 +62,7 @@ const DivineSliderTheSliderToEndAllSliders = (props) => {
         let veganPossible = ["rice", "soy", "oat", "almond"];
         for (const i of veganPossible) {
             if (props.id === i) {
-                console.log("match");
+                //console.log("match");
                 sessionStorage.setItem("veganTouched", true);
             }
         }
@@ -98,11 +98,11 @@ const DivineSliderTheSliderToEndAllSliders = (props) => {
 <br />
 
 <span className="test" >
-    {(val===1) && <div id={txt} > Never <span class="extrainfo"> </span> </div> }
-    {(val===2) && <div id={txt} > Rarely <span class="extrainfo"> one serving </span> </div> }
-    {(val===3) && <div id={txt} > Sometimes <span class="extrainfo"> more than one serving </span> </div> }
-    {(val===4) && <div id={txt} > Often <span class="extrainfo"> at least two servings </span> </div> }
-    {(val===5) && <div id={txt} > Very Often <span class="extrainfo"> with every meal </span> </div> }
+    {(val===1) && <div id={txt} > Never <span className="extrainfo"> </span> </div> }
+    {(val===2) && <div id={txt} > Rarely <span className="extrainfo"> one serving </span> </div> }
+    {(val===3) && <div id={txt} > Sometimes <span className="extrainfo"> more than one serving </span> </div> }
+    {(val===4) && <div id={txt} > Often <span className="extrainfo"> at least two servings </span> </div> }
+    {(val===5) && <div id={txt} > Very Often <span className="extrainfo"> with every meal </span> </div> }
 </span>
 
 </>

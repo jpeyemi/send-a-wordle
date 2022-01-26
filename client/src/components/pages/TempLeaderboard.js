@@ -116,6 +116,7 @@ const Temp = (props) => {
     if (hasUsers && sortUseravg) {
         avgList = sortUseravg.map((user) => (
         <TempCard
+            key={`TempCard_${user}`}
             avg = {dict[user]}
             userId = {user}
             map = {daniel}
@@ -130,6 +131,7 @@ const Temp = (props) => {
     if (hasUsers && dsortUseravg) {
         davgList = dsortUseravg.map((user) => (
         <TempCard
+            key={`TempCard2_${user}`}
             avg = {ellie[user]}
             userId = {user}
             map = {daniel}
@@ -144,6 +146,7 @@ const Temp = (props) => {
     if (hasUsers && hsortUseravg) {
         havgList = hsortUseravg.map((user) => (
         <TempCard
+            key={`TempCard3_${user}`}
             avg = {elise[user]}
             userId = {user}
             map = {daniel}
@@ -160,16 +163,16 @@ const Temp = (props) => {
         <section className="LeaderboardSection">
         <div className="Leaderboard-Header"> Leaderboard 
         <div className="Leaderboard-Underline"> </div></div>
-        <div class='footer'>
-            <div class='footer-item footer-one'>
+        <div className='footer'>
+            <div className='footer-item footer-one'>
                 <span className="Leaderboard-SubHeader"> Average Score </span>
                 {avgList}
             </div>
-            <div class='footer-item footer-two'>
+            <div className='footer-item footer-two'>
                 <span className="Leaderboard-SubHeader"> Most Recent Score </span>
                 {davgList}
             </div>
-            <div class='footer-item footer-three'>
+            <div className='footer-item footer-three'>
                 <span className="Leaderboard-SubHeader"> All Time Score </span>
                 {havgList}
             </div>

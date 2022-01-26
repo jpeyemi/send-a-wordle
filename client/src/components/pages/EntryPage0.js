@@ -14,10 +14,10 @@ const EntryPage0 = (props) => {
     const [entryDate, setD] = useState(new Date());
 
     const datesel = (date) =>{
-        console.log("at datesel");
+        //console.log("at datesel");
         setD(date)
         sessionStorage.setItem("date", entryDate.toString());
-        console.log(date);
+        //console.log(date);
     }
 
     const handleRightArrowHover = () => {
