@@ -78,4 +78,140 @@ body {
   
   .DateInput {
     padding-top: 20px;
+    font-family: 'Inter', sans-serif;
+    color: #475149;
   }
+
+  .EntryNeg-Header {
+    transform: translateY(25%);
+    text-align: center;
+    font-family: 'Manrope', sans-serif;
+    letter-spacing: 0.5px;
+    margin-top: 40px;
+    color: #475149; 
+    font-size: 30px;
+}
+
+.EntryNeg-Underline {
+    width: 100px;
+    height: 3px;
+    background-color: var(--primary);
+    justify-content: center;
+    text-align: center;
+    margin-left: 50%;
+    left: -50px;
+    position: relative;
+    transform: translateY(300%);
+    margin-bottom: 60px;
+}
+
+.stepText {
+  font-family: 'Poppins', sans-serif;
+  font-weight: normal; 
+  color: #475149; 
+  font-size: 12pt;
+  font-weight: 300px;
+  margin-top: 4%;
+  line-height: 20px;
+  letter-spacing: 0px;
+  margin-left: 7%;
+  margin-right: 7%;
+}
+
+.stepTextBolded {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -1px;
+  font-weight: 600; 
+  letter-spacing: 0.5px;
+  color: #475149; 
+  font-size: 14pt;
+  
+  margin-top: 10%;
+  line-height: 20px;
+}
+
+.stepOne {
+  margin-left: 24%;
+  margin-right: 0;
+}
+
+.stepTwo {
+  margin-left: 12%;
+  margin-right: 12%;
+}
+
+.stepThree {
+  margin-left: 0%;
+  margin-right: 24%;
+}
+
+.stepfirst {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+background-image: url("../../public/fourth.png");
+justify-content: right;
+border-radius: 50%;
+box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.2);
+
+}
+
+.stepfirstContainer {
+  width: 225px;
+  height: 225px;
+  justify-content: right;
+  transform: translateX(32%);
+  
+}
+
+.stepsecond {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+background-image: url("../../public/first.png");
+justify-content: right;
+border-radius: 50%;
+box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.2);
+
+}
+
+.stepsecondContainer {
+  width: 225px;
+  height: 225px;
+  justify-content: right;
+  margin-left: 12%;
+  margin-right: 12%;
+}
+
+
+.stepthird {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+background-image: url("../../public/fifth.png");
+justify-content: center;
+align-items: center;
+border-radius: 50%;
+box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.2);
+
+}
+
+.stepthirdContainer {
+  width: 225px;
+  height: 225px;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0%;
+}
+
+
+.steps {
+  margin-top: 4%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.step-item {
+  height: 320px;
+  flex: 1;
+}

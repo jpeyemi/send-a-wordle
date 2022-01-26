@@ -106,6 +106,12 @@ const EntryPage1 = (props) => {
                 onClick = { handleClick }>
                 <div className="RightArrow" />
             </Link>
+
+            <Link to="/entry/0" className="LeftArrowContainer" 
+                onMouseOver = { handleLeftArrowHover } >
+                <div className="LeftArrow" />
+        
+            </Link>
         </div>
         </> 
     );

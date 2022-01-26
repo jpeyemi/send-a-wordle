@@ -43,7 +43,7 @@ const Skeleton = (props) => {
         and our everyday food choices directly impact its future. 
         Take your first step towards stabilizing the Amazonian forest 
         frontier today.</p>
-        {isLogged && <Link to="/entry/1" className="StartButton">Start your Journey</Link> }
+        {isLogged && <Link to="/entry/00" className="StartButton">Start your Journey</Link> }
         {!isLogged && <LoginModal text="Start your Journey" handleLogin={props.handleLogin} /> }
           </div>
           

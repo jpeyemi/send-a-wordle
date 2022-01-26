@@ -189,7 +189,7 @@ const Journey = (props) => {
 
 <div className="Journey-Header-Sama">Log your first entry!</div>
                 <div className="Journey-Underline-Sama"></div>
-                <div className = "centering"> <Link to="/entry/1" className="Journey-Button">Start your Journey</Link> </div>
+                <div className = "centering"> <Link to="/entry/00" className="Journey-Button">Start your Journey</Link> </div>
 
             </>)}
             
