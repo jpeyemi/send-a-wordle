@@ -18,6 +18,7 @@ import { get, post } from "../utilities";
  */
 const App = () => {
   const [userId, setUserId] = useState(undefined);
+  const [code, setCode] = useState(undefined);
 
   useEffect(() => {
     get("/api/whoami").then((user) => {
@@ -45,10 +46,10 @@ const App = () => {
   return (
     <>
       <NavBar />
-      <Router className = "App-Container">
-          <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
-          <Create path="/create/:codeID"/>
-          <Play path="/play" />
+      <Router className = "App-Container" code={code}>
+          <Skeleton path="/" setCode={setCode} code={code}/>
+          <Create path="/create/:codeID" code={code} />
+          <Play path="/play" code={code}/>
           <NotFound default />
       </Router>
     </>

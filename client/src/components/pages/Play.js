@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import "./Play.css";
 import Row from "../modules/Row.js";
 
-const Play = () => {
+const Play = (props) => {
     const [rows, setRows] = useState([]);
     const [words, setWords] = useState([]);
     const [wordString, setWs] = useState('');

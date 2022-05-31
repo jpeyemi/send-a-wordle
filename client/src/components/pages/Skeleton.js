@@ -11,15 +11,11 @@ import "./Skeleton.css";
 const GOOGLE_CLIENT_ID = "121479668229-t5j82jrbi9oejh7c8avada226s75bopn.apps.googleusercontent.com";
 
 const Skeleton = (props) => {
-  const test = () => {
-    const body = {code: "1234", word: "apple"};
-    post("/api/words", body);
-  }
   
   return (
     <>
       <div id="container">
-        <CreateModal text="Create a Friendle" />
+        <CreateModal setCode={props.setCode} text="Create a Friendle" />
         <div className="orContainer">
           <div className="or"></div>
         </div>

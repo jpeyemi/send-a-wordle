@@ -1,16 +1,23 @@
 .Nav-Container{
     display:flex;
     width: 100vw;
-    height: var(--navvh);
-    background-color: var(--bgwhite);
+    height: 80px;
+    background-color: var(--white);
     border-bottom: 10pt;
     border-color: var(--tilewhite);
-    display:flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
+    
 }
 
 .Nav-icon{
+    width: 700px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    background-color: var(--bgwhite);
+    border-bottom: 1.5px solid #DAD9D9;
 
 }
 
@@ -20,12 +27,29 @@
     justify-content: center;
     background-color: var(--keytilewhite);
     box-shadow: 0 4px 0 0 var(--tilegrey);
-    border-radius: 20%;
+    border-radius: 7px;
     opacity: 100%;
-    height: 80%;
-    width: 30px;
-    margin: 2px;
+    height: 100%;
+    width: 38px;
     color: #ffff;
+    font-family: 'Nunito', 'sans-serif';
+    font-size: 17px;
+    font-weight: 700;
+    padding-top: 2px;
+    
+    
+}
+
+.anothercont {
+    display: flex;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    gap: 3px;
+    width:700px;
+    align-items: stretch;
+    height: 38px;
+
 }
 
 .green{

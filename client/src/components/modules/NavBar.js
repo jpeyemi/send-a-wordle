@@ -23,7 +23,11 @@ let friendle = frien.concat(dle);
   return (
     <>
     <div className = "Nav-Container">
-        {friendle}
+      <div className="Nav-icon">
+        <div className="anothercont">
+          {friendle}
+        </div>
+      </div>
     </div>
     </>
   );

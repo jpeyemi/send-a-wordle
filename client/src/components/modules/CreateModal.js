@@ -11,6 +11,7 @@ const CreateModal = (props) => {
     const [visible, setVisibility] = useState(false);
     const handleOpen = () => { setVisibility(true) };
     const handleClose = () => { setVisibility(false) };
+    const [set, isSet] = useState(false);
 
     const handleSubmit = () => {
         console.log(document.getElementById('only').value);
@@ -26,12 +27,14 @@ const CreateModal = (props) => {
                 // ascii from 48-122
                 let gen = ""
                 for (let i = 0; i < 10; i++) {
-                    gen += String.fromCharCode(Math.floor(Math.random() * (123 - 48) + 48));
+                    gen += String.fromCharCode(Math.floor(Math.random() * (91 - 65) + 65));
                 }
                 
                 const body = {code: gen, word: inp};
+                localStorage.setItem("code", gen);
+                console.log(gen);
                 post("/api/gamecodes", body).then(()=> {
-                    window.location.href = '/create/:code'
+                    window.location.href = '/create/:code';
                 });
             }   
         });
